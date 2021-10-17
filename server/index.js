@@ -20,7 +20,7 @@ const io = new Server(chat_server, {
 });
 const rootFolder = path.join(__dirname, "build");
 
-chat_server.use(express.static(path.join(__dirname, "build")));
+chat_server.use(express.static(rootFolder));
 
 chat_server.get("/", (req, res) => {
   res.send(rootFolder);
