@@ -4,8 +4,11 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 function RootCarousel(props){
-    return(<OwlCarousel className='owl-theme' loop margin={10} items={8}>
-        <div className='item'>11111</div> <div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div> <div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div> <div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div><div className='item'>11111</div>
+    const {items} =props;
+    return(<OwlCarousel className='owl-theme' loop margin={10} items={10}>
+        {items.map((elem)=>{
+            return items.length>0?<div className='items'>{elem.id}</div>:<></>
+        })}
     </OwlCarousel>)
 }
 export default RootCarousel
