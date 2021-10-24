@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './room_join_panel.css'
 
 function RoomJoinPanel(props) {
   const [room, setRoom] = useState(0);

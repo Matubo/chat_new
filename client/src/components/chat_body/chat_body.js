@@ -1,5 +1,9 @@
 import RoomCarousel from "../room_carousel/room_carousel";
 import RoomJoinPanel from "../roomJoinPanel/room_join_panel";
+import MessageContainer from "../message_container/message_container";
+import ChatInput from "../chat_input/chat_input";
+
+import "./chat_body.css";
 
 const RCitems = [
   { id: 1 },
@@ -25,7 +29,8 @@ function ChatBody(props) {
       <p className="chat-body__header">Chat</p>
       <RoomCarousel items={RCitems}></RoomCarousel>
       <RoomJoinPanel></RoomJoinPanel>
-    
+      <MessageContainer messages={[]}></MessageContainer>
+      <ChatInput></ChatInput>
     </div>
   );
 }

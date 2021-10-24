@@ -151,5 +151,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.6.2"
   }
 }
