@@ -34,7 +34,7 @@ class AddNewRoom extends GetRoomsCount {
   addNewRoom() {
     let newRoom = new this.Room(this.getRoomsCount() + 1, this.Message);
     this.rooms.push(newRoom);
-    return { result: true, room: newRoom };
+    return { status: true, room: newRoom };
   }
 }
 
@@ -43,7 +43,7 @@ class AddMessageToRoom extends AddNewRoom {
     let queryResult = this.getRoomById(id);
     if (queryResult.status == true) {
       queryResult.room.addMessage(userId, text);
-      return { status: true };
+      return { status: true, room: queryResult.room };
     } else return { status: false };
   }
 }

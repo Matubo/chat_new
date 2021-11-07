@@ -1,5 +1,6 @@
 import { useState } from "react";
-import './room_join_panel.css'
+import "./room_join_panel.css";
+import Test from "../test";
 
 function RoomJoinPanel(props) {
   const [room, setRoom] = useState(0);
@@ -18,6 +19,7 @@ function RoomJoinPanel(props) {
       <button className="room-join-panel__join-button" onClick={() => {}}>
         Присоединиться
       </button>
+      <Test></Test>
     </div>
   );
 }

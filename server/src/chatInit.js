@@ -24,9 +24,10 @@ const GET_ROOM_MESSAGES = (data) => {
 };
 
 const GET_LAST_ROOM_MESSAGES = (data) => {
-  const { id, count } = data;
+  const { id, loaded_count } = data;
   let result = ChatCopy.getRoomById(id);
   if (result.status == true) {
+    count = result.room.getMessagesCount() - loaded_count;
     return { status: true, messages: result.room.getLastRoomMessages(count) };
   } else return { result: false };
 };

@@ -1,27 +1,20 @@
 import express from "express";
 import path from "path";
-import init_socket_server from "./src/socket_query/socket_queries.js";
-import {
-  ADD_MESSAGE_TO_ROOM,
-  ADD_NEW_ROOM,
-  GET_ROOM_MESSAGES,
-  GET_LAST_ROOM_MESSAGES,
-  GET_ROOM_BY_ID,
-} from "./src/chatInit.js";
+import init_socket_server from "./src/socket/io.js";
 
 const __dirname = path.resolve(path.dirname(""));
-const port = 3001;
-const rootFolder = path.join(__dirname, "build");
+const PORT = 3001;
+const ROOT_FOLDER = path.join(__dirname, "build");
 const chat_server = express();
 
-chat_server.use(express.static(rootFolder));
+chat_server.use(express.static(ROOT_FOLDER));
 
 chat_server.get("/", (req, res) => {
-  res.send(rootFolder);
+  res.send(ROOT_FOLDER);
 });
 
-chat_server.listen(port, () => {
-  console.log({ port: port });
+const app = chat_server.listen(PORT, () => {
+  console.log({ port: PORT });
 });
 
-init_socket_server(chat_server);
+init_socket_server(app);

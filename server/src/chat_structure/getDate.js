@@ -2,24 +2,17 @@ function toXXformat(number) {
   if (number < 10) {
     return "0" + number;
   }
+  return number;
 }
 
 function getDate() {
   let date = new Date();
   let year = date.getFullYear(),
-    month =
-      date.getMonth() < 10 ? toXXformat(date.getMonth()) : date.getMonth(),
-    day = date.getDay() < 10 ? toXXformat(date.getDay()) : date.getDay(),
-    hours =
-      date.getHours() < 10 ? toXXformat(date.getHours()) : date.getHours(),
-    minutes =
-      date.getMinutes() < 10
-        ? toXXformat(date.getMinutes())
-        : date.getMinutes(),
-    seconds =
-      date.getSeconds() < 10
-        ? toXXformat(date.getSeconds())
-        : date.getSeconds();
+    month = toXXformat(date.getMonth() + 1),
+    day = toXXformat(date.getDate()),
+    hours = toXXformat(date.getHours()),
+    minutes = toXXformat(date.getMinutes()),
+    seconds = toXXformat(date.getSeconds());
 
   return `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
 }
