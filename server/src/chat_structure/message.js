@@ -1,8 +1,8 @@
 import getDate from "./getDate.js";
 
 class MessageRoot {
-  constructor(userId, text) {
-    this.userId = userId;
+  constructor(username, text) {
+    this.username = username;
     this.text = text;
     this.date = getDate();
   }
