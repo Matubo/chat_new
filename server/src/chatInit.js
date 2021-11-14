@@ -5,8 +5,8 @@ import Chat from "./chat_structure/chat.js";
 let ChatCopy = new Chat(Room, Message);
 
 const ADD_MESSAGE_TO_ROOM = (data) => {
-  const { id, user, text } = data;
-  let result = ChatCopy.addMessageToRoom(id, user, text);
+  const { id, username, message } = data;
+  let result = ChatCopy.addMessageToRoom(id, username, message);
   return result;
 };
 
