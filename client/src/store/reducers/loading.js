@@ -1,22 +1,24 @@
-const initialState = {
-  loading: false,
-  error: false,
-  error_message: null,
-};
+import { createSlice } from "@reduxjs/toolkit";
 
-export default function loading(state = initialState, action) {
-  switch (action.type) {
-    case "START_LOADING":
-      return { loading: true, error: false, error_message: null };
-    case "FINISH_LOADING":
-      return { loading: false, error: false, error_message: null };
-    case "ERROR":
-      return {
-        loading: false,
-        error: true,
-        error_message: action.error_message,
-      };
-    default:
-      return state;
-  }
-}
+const loading = createSlice({
+  name: "loading",
+  initialState: { loading: false, error: false, errorMessage: null },
+  reducers: {
+    startLoading(state) {
+      state.loading = true;
+      state.errorMessage = null;
+    },
+    finishLoading(state) {
+      state.loading = false;
+      state.errorMessage = null;
+    },
+    loadingError(state, action) {
+      let { errMsg } = action.payload;
+      state.error = true;
+      state.errorMessage = errMsg;
+    },
+  },
+});
+
+export default loading.reducer;
+export const actions = loading.actions;

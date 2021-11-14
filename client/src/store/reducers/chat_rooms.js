@@ -1,23 +1,27 @@
-const initialState = {
-  rooms: new Map(),
-  current_room: null,
-};
+import { createSlice } from "@reduxjs/toolkit";
 
-export default function chat_rooms(state = initialState, action) {
-  switch (action.type) {
-    case "ADD_ROOM":
-      return {
-        rooms: state.rooms.set(
-          action.new_room.id,
-          action.new_room
-        ) /* [...state.rooms, action.new_room] */,
-        current_room: state.current_room,
-      };
-    case "CHANGE_ROOM":
-      return { rooms: state.rooms, current_room: action.new_current_room };
-    case "SET_NEW_MESSAGES":
-      return { rooms: action.rooms, current_room: action.current_room };
-    default:
-      return state;
-  }
-}
+const chatRooms = createSlice({
+  name: "chatRooms",
+  initialState: {
+    rooms: {},
+    currentRoom: null,
+  },
+  reducers: {
+    addRoom(state, action) {
+      console.log(actions);
+      const { room, id } = action.payload;
+      state.rooms[id] = room;
+    },
+    changeRoom(state, action) {
+      const { id } = action.payload;
+      state.currentRoom = state.rooms[id];
+    },
+    setNewMessage(state, action) {
+      const { id, message } = action.payload;
+      state.rooms[id].messages.push(message);
+    },
+  },
+});
+
+export default chatRooms.reducer;
+export const actions = chatRooms.actions;

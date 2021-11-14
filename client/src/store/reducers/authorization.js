@@ -1,15 +1,23 @@
-const initialState = {
-  authorized: false,
-  userId: null,
-};
+import { createSlice } from "@reduxjs/toolkit";
 
-export default function authorized(state = initialState, action) {
-  switch (action.type) {
-    case "LOG_IN":
-      return { authorized: true, userId: action.userId };
-    case "LOG_OUT":
-      return { authorized: false, userId: null };
-    default:
-      return state;
-  }
-}
+const authorized = createSlice({
+  name: "authorized",
+  initialState: {
+    authorized: false,
+    userId: null,
+  },
+  reducers: {
+    logIn(state, action) {
+      const { userId } = action.payload;
+      state.authorized = true;
+      state.userId = userId;
+    },
+    logOut(state) {
+      state.authorized = false;
+      state.userId = null;
+    },
+  },
+});
+
+export default authorized.reducer;
+export const actions = authorized.actions;

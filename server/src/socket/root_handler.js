@@ -47,7 +47,7 @@ function handlers(io, socket) {
       message,
     });
     if (result.status) {
-      io.to(result.room).emit("new_room_message", id, message);
+      io.to(result.room).emit("new_room_message", { id, message });
       console.log("accept_new_message_room", result);
     }
   });
