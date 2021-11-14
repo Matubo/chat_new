@@ -1,14 +1,16 @@
 import { takeLatest } from "@redux-saga/core/effects";
 
+const currentState = (store) => store;
+
 function* test(...arr) {
   console.log(arr);
 }
 
 function* rootSaga(action) {
-  yield takeLatest("accept_create_room_success", test);
-  yield takeLatest("accept_join_to_room_success", test);
-  yield takeLatest("new_room_message_request", test);
-  yield takeLatest("accept_set_username_success", test);
+  yield takeLatest("queries/accept_create_room_success", test);
+  yield takeLatest("queries/accept_join_to_room_success", test);
+  yield takeLatest("queries/new_room_message_request", test);
+  yield takeLatest("queries/accept_set_username_success", test);
 }
 
 export default rootSaga;

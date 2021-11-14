@@ -15,16 +15,16 @@ const CREATE_ROOM = create_room(socket);
 const JOIN_TO_ROOM = join_to_room(socket);
 
 accept_create_room(socket)((data) => {
-  store.dispatch({ type: "accept_create_room_success", data });
+  store.dispatch({ type: "queries/accept_create_room_success", data });
 });
 accept_join_to_room(socket)((data) => {
-  store.dispatch({ type: "accept_join_to_room_success", data });
+  store.dispatch({ type: "queries/accept_join_to_room_success", data });
 });
 new_room_message(socket)((data) => {
-  store.dispatch({ type: "new_room_message_request", data });
+  store.dispatch({ type: "queries/new_room_message_request", data });
 });
 accept_set_username(socket)((data) => {
-  store.dispatch({ type: "accept_set_username_success", data });
+  store.dispatch({ type: "queries/accept_set_username_success", data });
 });
 
 export { ADD_MESSAGE_TO_ROOM, SET_USERNAME, CREATE_ROOM, JOIN_TO_ROOM };
