@@ -12,7 +12,10 @@ function handlers(io, socket) {
     const { username } = data;
     if (username != "") {
       socket.username = username;
-      socket.emit("accept_set_username", socket.username); //--
+      socket.emit("accept_set_username", {
+        status: true,
+        username: socket.username,
+      }); //--
       console.log("accept_set_user");
     }
   });
@@ -33,7 +36,7 @@ function handlers(io, socket) {
     let result = ADD_NEW_ROOM();
     if (result.status) {
       socket.join(result.room);
-      socket.emit("accept_create_to_room", result.room);
+      socket.emit("accept_join_to_room", result); //--
       console.log("accept_create_room", result);
     }
   });
@@ -47,7 +50,11 @@ function handlers(io, socket) {
       message,
     });
     if (result.status) {
-      io.to(result.room).emit("new_room_message", { id, message });
+      io.to(result.room).emit("new_room_message", {
+        status: true,
+        id,
+        message,
+      });
       console.log("accept_new_message_room", result);
     }
   });
@@ -56,7 +63,7 @@ function handlers(io, socket) {
     const { id, loaded_count } = data;
     let result = GET_LAST_ROOM_MESSAGES({ id, loaded_count }); //download_count - количество на клиенте а не количество загружаемых
     if (result.status) {
-      socket.emit("get_last_messages", result.messages);
+      socket.emit("get_last_messages", result);
     }
   });
 }

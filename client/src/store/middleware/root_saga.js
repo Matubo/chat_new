@@ -6,11 +6,33 @@ function* test(...arr) {
   console.log(arr);
 }
 
+function* acceptJoinToRoom(res) {
+  const { data } = res;
+  console.log(data);
+  if (data.status) {
+    console.log(data);
+  }
+}
+
+function* newRoomMessage(res) {
+  const { data } = res;
+  if (data.status) {
+    console.log(data);
+  }
+}
+
+function* acceptSetUsername(res) {
+  const { data } = res;
+  if (data.status) {
+    console.log(data);
+  }
+}
+
 function* rootSaga(action) {
-  yield takeLatest("queries/accept_create_room_success", test);
-  yield takeLatest("queries/accept_join_to_room_success", test);
-  yield takeLatest("queries/new_room_message_request", test);
-  yield takeLatest("queries/accept_set_username_success", test);
+  yield takeLatest("queries/accept_create_room", test);
+  yield takeLatest("queries/accept_join_to_room", acceptJoinToRoom);
+  yield takeLatest("queries/new_room_message", newRoomMessage);
+  yield takeLatest("queries/accept_set_username", acceptSetUsername);
 }
 
 export default rootSaga;
