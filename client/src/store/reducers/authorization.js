@@ -8,9 +8,9 @@ const authorized = createSlice({
   },
   reducers: {
     logIn(state, action) {
-      const { userId } = action.payload;
+      const { username } = action.payload;
       state.authorized = true;
-      state.userId = userId;
+      state.userId = username;
     },
     logOut(state) {
       state.authorized = false;

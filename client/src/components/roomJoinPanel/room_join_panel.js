@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./room_join_panel.css";
 import Test from "../test";
-import { store, actions } from "../../store/store";
+import  store, { actions } from "../../store/store";
 import { Provider } from "react-redux";
 
 function RoomJoinPanel(props) {

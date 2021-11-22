@@ -39,10 +39,10 @@ class AddNewRoom extends GetRoomsCount {
 }
 
 class AddMessageToRoom extends AddNewRoom {
-  addMessageToRoom(id, username, text) {
+  addMessageToRoom(id, username, message) {
     let queryResult = this.getRoomById(id);
     if (queryResult.status == true) {
-      queryResult.room.addMessage(username, text);
+      queryResult.room.addMessage(username, message);
       return { status: true, room: queryResult.room };
     } else return { status: false };
   }

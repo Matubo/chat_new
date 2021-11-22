@@ -21,4 +21,5 @@ sagaMiddleware.run(rootSaga);
 
 const actions = { ...authorizationActions, ...loadingActions, ...chatActions };
 
-export { store, actions };
+export { actions };
+export default store

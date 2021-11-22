@@ -1,4 +1,4 @@
-import { store, actions } from "../store/store";
+import store,{ actions } from "../store/store";
 import {
   ADD_MESSAGE_TO_ROOM,
   SET_USERNAME,
@@ -80,7 +80,7 @@ export default function Test() {
         </button>
         <button
           onClick={() => {
-            dispatch(actions.logIn({ userId: "Matthew" }));
+            dispatch(actions.logIn({ username: "Matthew" }));
           }}
         >
           LogIn

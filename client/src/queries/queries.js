@@ -7,7 +7,7 @@ import accept_create_room from "./responses/accept_create_room";
 import accept_join_to_room from "./responses/accept_join_to_room";
 import new_room_message from "./responses/new_messages_on_room";
 import accept_set_username from "./responses/accept_set_username";
-import { store } from "../store/store";
+import store  from "../store/store";
 
 const ADD_MESSAGE_TO_ROOM = add_message_to_room(socket);
 const SET_USERNAME = set_username(socket);

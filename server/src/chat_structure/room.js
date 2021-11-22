@@ -39,8 +39,8 @@ class MessagePrototype extends GetLastRoomMessages {
 }
 
 class AddMessageToRoom extends MessagePrototype {
-  addMessage(userId, text) {
-    this.messages.push(new this.Message(userId, text));
+  addMessage(username,message) {
+    this.messages.push(new this.Message(username, message));
   }
 }
 

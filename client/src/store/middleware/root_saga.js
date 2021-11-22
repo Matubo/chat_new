@@ -1,5 +1,7 @@
-import { takeLatest } from "@redux-saga/core/effects";
+import { takeLatest, put } from "@redux-saga/core/effects";
+import { actions } from "../store";
 
+/* const {startLoading,finishLoading,logIn,logOut,addRoom,changeRoom} = actions  */
 const currentState = (store) => store;
 
 function* test(...arr) {
@@ -22,11 +24,18 @@ function* newRoomMessage(res) {
 }
 
 function* acceptSetUsername(res) {
-  const { data } = res;
+  const { status, username } = res.data;
+  if(status){
+    yield put(actions.finishLoading());
+    console.log(actions.logIn({username}))
+    yield put(actions.logIn({username}));
+  }
+/*   console.log(data)
   if (data.status) {
     console.log(data);
   }
-}
+  */
+} 
 
 function* rootSaga(action) {
   yield takeLatest("queries/accept_create_room", test);
@@ -36,6 +45,7 @@ function* rootSaga(action) {
 }
 
 export default rootSaga;
+
 /* 
 accept_create_room(socket)(() => {
     useDispatch({ type: "accept_create_room_success" });
