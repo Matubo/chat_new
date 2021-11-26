@@ -44,19 +44,24 @@ function handlers(io, socket) {
   socket.on("add_new_message", (data) => {
     const { id, message } = data;
     console.log("new_message_on_room", data);
-    console.log(id,message,socket.username)
+    console.log(id, message, socket.username);
     let result = ADD_MESSAGE_TO_ROOM({
       id,
       username: socket.username,
       message,
     });
+    console.log(result);
     if (result.status) {
       io.to(result.room).emit("new_room_message", {
         status: true,
-        id,
-        message,
+        message: result.message,
+        id: result.id,
       });
-      console.log("accept_new_message_room", result);
+      console.log("accept_new_message_room", {
+        status: true,
+        message: result.message,
+        id: result.id,
+      });
     }
   });
 

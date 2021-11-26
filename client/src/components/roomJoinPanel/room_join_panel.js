@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./room_join_panel.css";
 import Test from "../test";
-import  store, { actions } from "../../store/store";
+import store, { actions } from "../../store/store";
 import { Provider } from "react-redux";
+import { JOIN_TO_ROOM } from "../../queries/queries";
 
 function RoomJoinPanel(props) {
   const [room, setRoom] = useState(0);
@@ -18,7 +19,12 @@ function RoomJoinPanel(props) {
         onChange={changeHandler}
         value={room}
       ></input>
-      <button className="room-join-panel__join-button" onClick={() => {}}>
+      <button
+        className="room-join-panel__join-button"
+        onClick={() => {
+          JOIN_TO_ROOM(room);
+        }}
+      >
         Присоединиться
       </button>
       <Provider store={store}>

@@ -1,8 +1,9 @@
-import { takeLatest, put } from "@redux-saga/core/effects";
+import { takeLatest, put, select } from "@redux-saga/core/effects";
 import { actions } from "../store";
 
 /* const {startLoading,finishLoading,logIn,logOut,addRoom,changeRoom} = actions  */
 const currentState = (store) => store;
+const currentRooms = (store) => store.chatRooms;
 
 function* test(...arr) {
   console.log(arr);
@@ -10,32 +11,36 @@ function* test(...arr) {
 
 function* acceptJoinToRoom(res) {
   const { data } = res;
-  console.log(data);
   if (data.status) {
-    console.log(data);
+    let currentRoomState = yield select(currentRooms);
+    console.log(data.room);
+    if (currentRoomState.rooms[`${data.room.id}`] == undefined) {
+      yield put(actions.addRoom({ room: data.room, id: data.room.id }));
+    }
   }
 }
 
 function* newRoomMessage(res) {
   const { data } = res;
+  console.log(data);
   if (data.status) {
-    console.log(data);
+    yield put(actions.setNewMessage({ id: data.id, message: data.message }));
   }
 }
 
 function* acceptSetUsername(res) {
   const { status, username } = res.data;
-  if(status){
+  if (status) {
     yield put(actions.finishLoading());
-    console.log(actions.logIn({username}))
-    yield put(actions.logIn({username}));
+    console.log(actions.logIn({ username }));
+    yield put(actions.logIn({ username }));
   }
-/*   console.log(data)
+  /*   console.log(data)
   if (data.status) {
     console.log(data);
   }
   */
-} 
+}
 
 function* rootSaga(action) {
   yield takeLatest("queries/accept_create_room", test);

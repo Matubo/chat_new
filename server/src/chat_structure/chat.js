@@ -42,8 +42,10 @@ class AddMessageToRoom extends AddNewRoom {
   addMessageToRoom(id, username, message) {
     let queryResult = this.getRoomById(id);
     if (queryResult.status == true) {
-      queryResult.room.addMessage(username, message);
-      return { status: true, room: queryResult.room };
+      let result = queryResult.room.addMessage(username, message);
+      result.id = id;
+      result.room = queryResult.room;
+      return result;
     } else return { status: false };
   }
 }
