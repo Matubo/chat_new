@@ -2,6 +2,7 @@ import RoomCarousel from "../room_carousel/room_carousel";
 import RoomJoinPanel from "../roomJoinPanel/room_join_panel";
 import MessageContainer from "../message_container/message_container";
 import ChatInput from "../chat_input/chat_input";
+import store, { actions } from '../../store/store'
 
 import "./chat_body.css";
 
