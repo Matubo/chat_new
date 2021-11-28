@@ -1,14 +1,14 @@
 import "./App.css";
-import Authorization from "./components/authorization/authorization";
 import ChatBody from "./components/chat_body/chat_body";
-
-//data - messages, rooms; methods- send message, join to room , change room 
+import store from "./store/store";
+import { Provider } from "react-redux";
 
 function App() {
   return (
     <div className="App">
-      {/*  <Authorization /> */}
-      <ChatBody></ChatBody>
+      <Provider store={store}>
+        <ChatBody></ChatBody>
+      </Provider>
     </div>
   );
 }

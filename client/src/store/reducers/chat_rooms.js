@@ -14,7 +14,7 @@ const chatRooms = createSlice({
     },
     changeRoom(state, action) {
       const { id } = action.payload;
-      state.currentRoom = state.rooms[id];
+      state.currentRoomId = id;
     },
     setNewMessage(state, action) {
       const { id, message } = action.payload;

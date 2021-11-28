@@ -26,7 +26,7 @@ function handlers(io, socket) {
     let result = GET_ROOM_BY_ID({ id });
     if (result.status) {
       socket.join(result.room);
-      socket.emit("accept_join_to_room", result.room); //--
+      socket.emit("accept_join_to_room", result); //--
       console.log("accept_join_to_room", result);
     }
   });

@@ -2,7 +2,9 @@ import RoomCarousel from "../room_carousel/room_carousel";
 import RoomJoinPanel from "../roomJoinPanel/room_join_panel";
 import MessageContainer from "../message_container/message_container";
 import ChatInput from "../chat_input/chat_input";
-import store, { actions } from '../../store/store'
+import { actions } from "../../store/store";
+import { useSelector, useDispatch } from "react-redux";
+import { JOIN_TO_ROOM } from "../../queries/queries";
 
 import "./chat_body.css";
 
@@ -25,12 +27,27 @@ const RCitems = [
 ];
 
 function ChatBody(props) {
+  const chatRooms = useSelector((state) => state.chatRooms);
+  const authorized = useSelector((state) => state.authorized);
+  const loading = useSelector((state) => state.loading);
+  const dispatch = useDispatch();
+
   return (
     <div className="chat-body">
       <p className="chat-body__header">Chat</p>
-      <RoomCarousel items={RCitems}></RoomCarousel>
-      <RoomJoinPanel></RoomJoinPanel>
-      <MessageContainer messages={[]}></MessageContainer>
+      {/*  <Authorization /> */}
+      <RoomCarousel
+        items={chatRooms.rooms}
+        changeRoom={(id) => dispatch(actions.changeRoom({ id }))}
+      ></RoomCarousel>
+      <RoomJoinPanel joinToRoom={JOIN_TO_ROOM}></RoomJoinPanel>
+      <MessageContainer
+        messages={
+          chatRooms.currentRoomId
+            ? chatRooms.rooms[chatRooms.currentRoomId].messages
+            : []
+        }
+      ></MessageContainer>
       <ChatInput></ChatInput>
     </div>
   );
