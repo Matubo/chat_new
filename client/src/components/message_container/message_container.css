@@ -1,3 +1,8 @@
+.message-container{
+    overflow-y: visible;
+    box-sizing: border-box;
+    margin:5px;
+}
 .message-container_message{
     border:1px solid black;
     border-radius:20px 20px;

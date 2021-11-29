@@ -28,7 +28,7 @@ function RootCarousel(props) {
   }
 
   return (
-    <OwlCarousel className="owl-theme" loop margin={10} items={10} loop={false} key={crutch}>
+    <OwlCarousel className="owl-theme" loop margin={10} items={10} loop={false} key={crutch} dots={true}>
       {createDOM()}
     </OwlCarousel>
   );

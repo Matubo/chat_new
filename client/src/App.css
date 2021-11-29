@@ -1,3 +1,4 @@
-body{
+body{margin:0;}
+#root,body, .App{
     height:100vh;
 }

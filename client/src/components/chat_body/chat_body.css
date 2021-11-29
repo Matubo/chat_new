@@ -1,0 +1,13 @@
+.chat-body{
+    height:90vh;
+    width:94vw;
+    margin:5vh 3vw;
+    border:black solid 2px;
+    border-radius: 20px 20px;
+    overflow:hidden;
+}
+.chat-body__header{
+    width:100%;
+    text-align: center;
+    border-bottom:black solid 2px;
+}
