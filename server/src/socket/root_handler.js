@@ -43,11 +43,12 @@ function handlers(io, socket) {
 
   socket.on("add_new_message", (data) => {
     const { id, message } = data;
+    const username=socket.username?socket.username:'Guest'
     console.log("new_message_on_room", data);
     console.log(id, message, socket.username);
     let result = ADD_MESSAGE_TO_ROOM({
       id,
-      username: socket.username,
+      username,
       message,
     });
     console.log(result);

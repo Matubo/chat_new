@@ -5,6 +5,7 @@ import "./room_carousel.css";
 
 function RootCarousel(props) {
   const { items, changeRoom } = props;
+  let crutch=0;
 
   function createDOM() {
     let DOM = [];
@@ -22,11 +23,12 @@ function RootCarousel(props) {
         </div>
       );
     }
+    crutch=DOM.length;
     return DOM;
   }
 
   return (
-    <OwlCarousel className="owl-theme" loop margin={10} items={10} loop={false}>
+    <OwlCarousel className="owl-theme" loop margin={10} items={10} loop={false} key={crutch}>
       {createDOM()}
     </OwlCarousel>
   );

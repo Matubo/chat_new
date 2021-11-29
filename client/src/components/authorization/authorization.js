@@ -2,22 +2,27 @@ import { useState } from "react";
 import "./authorization.css";
 
 function Authorization(props) {
-  const [nickname, setNickname] = useState("");
+  const {setUsername}=props;
+  const [username, setUsernameInput] = useState("");
   function changeHandler(e) {
-    setNickname(e.target.value);
+    setUsernameInput(e.target.value);
   }
+  function setUsernameHandler(){
+    setUsername(username)
+  }
+
   return (
     <div className="authorization-body">
       <div className="authorization-body__pop-up">
         <p className="authorization-body__pop-up-header">Вход в чат</p>
-        <p className="authorization-body__pop-up-login">Введите nickname</p>
+        <p className="authorization-body__pop-up-login">Введите username</p>
         <input
-          className="authorization-body__pop-up__nickname-input"
+          className="authorization-body__pop-up__username-input"
           type="text"
           onChange={changeHandler}
-          value={nickname}
+          value={username}
         ></input>
-        <button className="authorization-body__pop-up__authorization-button">
+        <button className="authorization-body__pop-up__authorization-button" onClick={setUsernameHandler}>
           Войти
         </button>
       </div>
