@@ -1,4 +1,6 @@
-body{margin:0;}
-#root,body, .App{
-    height:100vh;
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
