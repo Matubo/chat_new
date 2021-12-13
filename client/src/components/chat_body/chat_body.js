@@ -21,7 +21,7 @@ function ChatBody(props) {
   const dispatch = useDispatch();
   return (
     <div className="chat-body">
-      <p className="chat-body__header">Chat</p>
+      <p className="chat-body__header">CHAT</p>
       <div className="chat-body__content">
         {authorization.authorized ? (
           <>
@@ -32,7 +32,7 @@ function ChatBody(props) {
             <RoomJoinPanel
               joinToRoom={JOIN_TO_ROOM}
               createRoom={CREATE_ROOM}
-            ></RoomJoinPanel>{" "}
+            ></RoomJoinPanel>
             <MessageContainer
               messages={
                 chatRooms.currentRoomId
