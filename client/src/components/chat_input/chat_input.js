@@ -18,9 +18,11 @@ function ChatInput(props) {
       <input
         className="chat-input__input"
         type="text"
+        scrolling='yes'
         onChange={changeHandler}
         value={message}
       ></input>
+      <div contenteditable="true" onChange={changeHandler}>{message}</div>
       <button className="chang-input__send" onClick={sendMessageHandler}>
         Отправить
       </button>
