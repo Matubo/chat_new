@@ -18,7 +18,7 @@ function MessageField(props) {
             >
               <p className="message-container_message_text">{elem.text}</p>
               <p className="message-container_message_info">
-                {elem.username} : {elem.date}
+                {elem.username} - {elem.date}
               </p>
             </div>
           );
