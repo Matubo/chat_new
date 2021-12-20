@@ -12,6 +12,3 @@
 .test {
   border: 1px solid black;
 }
-.test:empty:before {
-  content: attr(data-placeholder);
-}

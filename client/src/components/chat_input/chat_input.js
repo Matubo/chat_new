@@ -15,9 +15,9 @@ function ChatInput(props) {
       setMessage("");
     }
   }
-  useContext(() => {
-    set_placeholder(refElem);
-  }, []);
+  /*   useContext(() => {
+    set_placeholder(refElem.current);
+  }, []); */
   return (
     <div className="chat-input">
       {/*       <input
@@ -33,12 +33,12 @@ function ChatInput(props) {
         onInput={(e) => {
           changeHandler(e);
         }}
-        
       ></div>
       <button
         className="chang-input__send"
         data-placeholder="Text here"
         onClick={sendMessageHandler}
+        value={message}
       >
         Отправить
       </button>
