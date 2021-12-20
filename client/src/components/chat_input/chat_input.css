@@ -6,6 +6,7 @@
   height: 5vh;
   margin: 5px;
 }
+<<<<<<< HEAD
 .chat-input__input{
   width:70vw;
 }
@@ -15,3 +16,11 @@
 .test{
   border:1px solid black;
 }
+=======
+.chat-input__input {
+  width: 70vw;
+}
+.test {
+  border: 1px solid black;
+}
+>>>>>>> b3b309df7a4ac75ec41e358d784aec215a996484
