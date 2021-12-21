@@ -7,13 +7,13 @@
   width: 100%;
   text-align: center;
   border-bottom: rgba(34, 60, 80, 0.6) solid 1px;
-  border-radius: 0 0 10px 20px;
   box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+  font-weight: bolder;
+  font-size:x-large;
 }
 
 .chat-body__content {
   overflow: hidden;
-  padding: 10px;
   height: 90vh;
   overflow: hidden;
 }

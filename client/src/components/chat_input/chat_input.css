@@ -5,22 +5,30 @@
   bottom: 0;
   height: 5vh;
   margin: 5px;
-}
-<<<<<<< HEAD
-.chat-input__input{
-  width:70vw;
-}
-.chang-input__send{
+  width: 80vw;
+  display:flex;
   
 }
+.chang-input__send{
+  width:8vw;
+}
 .test{
-  border:1px solid black;
+  width:70vw;
+  max-width: 70vw;
+  border:1px solid rgb(139, 139, 139);;
+  border-radius: 5px;
+  white-space:nowrap;
+  overflow-x: hidden;
 }
-=======
-.chat-input__input {
-  width: 70vw;
+.test::-webkit-scrollbar{ display: none; }
+.test{
+  scrollbar-width: none;
 }
-.test {
-  border: 1px solid black;
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  position: absolute;
+  color: rgb(139, 139, 139);
+  background-color: transparent;
+  font-family: "SF Pro Display";
+  font-weight:lighter;
 }
->>>>>>> b3b309df7a4ac75ec41e358d784aec215a996484

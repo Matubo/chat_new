@@ -21,7 +21,7 @@ function ChatBody(props) {
   const dispatch = useDispatch();
   return (
     <div className="chat-body">
-      <p className="chat-body__header">CHAT</p>
+      <h1 className="chat-body__header">CHAT</h1>
       <div className="chat-body__content">
         {authorization.authorized ? (
           <>

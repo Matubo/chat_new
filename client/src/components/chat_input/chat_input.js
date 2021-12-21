@@ -1,11 +1,10 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useRef } from "react";
 import "./chat_input.css";
-import set_placeholder from "./placeholder_handler";
 
 function ChatInput(props) {
   const { sendMessage } = props;
   const [message, setMessage] = useState("");
-  const refElem = useRef(null);
+  const inpRef=useRef('')
   function changeHandler(e) {
     setMessage(e.target.textContent);
   }
@@ -13,40 +12,25 @@ function ChatInput(props) {
     if (message.length > 0) {
       sendMessage(message);
       setMessage("");
+      inpRef.current.textContent = "";
     }
   }
-  /*   useContext(() => {
-    set_placeholder(refElem.current);
-  }, []); */
   return (
     <div className="chat-input">
-      {/*       <input
-        className="chat-input__input"
-        type="text"
-        scrolling='yes'
-        onChange={changeHandler}
-        value={message}
-<<<<<<< HEAD
-      ></input>
-      <div contenteditable="true" onChange={changeHandler}>{message}</div>
-      <button className="chang-input__send" onClick={sendMessageHandler}>
-=======
-      ></input> */}
       <div
+      className="test"
         type="text"
         contenteditable="true"
-        ref={refElem}
-        onInput={(e) => {
-          changeHandler(e);
-        }}
+        placeholder="Text here.."
+        /* oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" */
+        value={message}
+        ref={inpRef}
+        onInput={changeHandler}
       ></div>
       <button
         className="chang-input__send"
-        data-placeholder="Text here"
         onClick={sendMessageHandler}
-        value={message}
       >
->>>>>>> b3b309df7a4ac75ec41e358d784aec215a996484
         Отправить
       </button>
     </div>
