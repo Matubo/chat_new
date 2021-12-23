@@ -13,7 +13,7 @@ function RootCarousel(props) {
       const { id } = items[key];
       DOM.push(
         <button
-          className="owl-theme__items__items"
+          className="carousel__item"
           key={id}
           onClick={() => {
             changeRoom(id);
