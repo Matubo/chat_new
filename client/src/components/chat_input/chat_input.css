@@ -6,23 +6,23 @@
   height: 5vh;
   margin: 5px;
   width: 80vw;
-  display:flex;
-  
+  display: flex;
 }
-.chang-input__send{
-  width:8vw;
+.chang-input__send {
+  width: 8vw;
 }
-.test{
-  width:70vw;
+.test {
+  width: 70vw;
   max-width: 70vw;
-  border:1px solid rgb(139, 139, 139);;
+  border: 1px solid rgb(139, 139, 139);
   border-radius: 5px;
-  white-space:nowrap;
+  padding: 4px;
+  white-space: nowrap;
   overflow-x: hidden;
-}
-.test::-webkit-scrollbar{ display: none; }
-.test{
   scrollbar-width: none;
+}
+.test::-webkit-scrollbar {
+  display: none;
 }
 [contenteditable][placeholder]:empty:before {
   content: attr(placeholder);
@@ -30,5 +30,5 @@
   color: rgb(139, 139, 139);
   background-color: transparent;
   font-family: "SF Pro Display";
-  font-weight:lighter;
+  font-weight: lighter;
 }

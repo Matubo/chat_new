@@ -32,7 +32,7 @@ function RootCarousel(props) {
       className="owl-theme carousel"
       loop
       margin={10}
-      items={10}
+      items={1}
       loop={false}
       key={crutch}
       dots={true}

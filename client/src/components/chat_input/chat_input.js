@@ -4,7 +4,7 @@ import "./chat_input.css";
 function ChatInput(props) {
   const { sendMessage } = props;
   const [message, setMessage] = useState("");
-  const inpRef=useRef('')
+  const inpRef = useRef("");
   function changeHandler(e) {
     setMessage(e.target.textContent);
   }
@@ -18,19 +18,15 @@ function ChatInput(props) {
   return (
     <div className="chat-input">
       <div
-      className="test"
+        className="test"
         type="text"
         contenteditable="true"
         placeholder="Text here.."
-        /* oninput="if(this.innerHTML.trim()==='<br>')this.innerHTML=''" */
         value={message}
         ref={inpRef}
         onInput={changeHandler}
       ></div>
-      <button
-        className="chang-input__send"
-        onClick={sendMessageHandler}
-      >
+      <button className="chang-input__send" onClick={sendMessageHandler}>
         Отправить
       </button>
     </div>
