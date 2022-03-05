@@ -8,20 +8,21 @@ function RootCarousel(props) {
   let crutch = 0;
 
   function createDOM() {
+    const getElem = (id) => (
+      <button
+        className="carousel__item"
+        key={id}
+        onClick={() => {
+          changeRoom(id);
+        }}
+      >
+        {id}
+      </button>
+    );
     let DOM = [];
     for (let key in items) {
       const { id } = items[key];
-      DOM.push(
-        <button
-          className="carousel__item"
-          key={id}
-          onClick={() => {
-            changeRoom(id);
-          }}
-        >
-          {id}
-        </button>
-      );
+      DOM.push(getElem(id));
     }
     crutch = DOM.length;
     return DOM;
