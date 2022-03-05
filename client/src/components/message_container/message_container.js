@@ -2,10 +2,9 @@ import "./message_container.css";
 
 function MessageField(props) {
   const { messages, userId } = props;
-  console.log(messages);
   return (
     <div className="message-container">
-      {messages.length ? (
+      {messages.length>0 ? (
         messages.map((elem, index) => {
           return (
             <div

@@ -4,6 +4,7 @@ import "./authorization.css";
 function Authorization(props) {
   const {setUsername}=props;
   const [username, setUsernameInput] = useState("");
+  
   function changeHandler(e) {
     setUsernameInput(e.target.value);
   }

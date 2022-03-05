@@ -3,14 +3,14 @@ import createSagaMiddleware from "redux-saga";
 import authorization, {
   actions as authorizationActions,
 } from "./reducers/authorization";
-import chatRooms, { actions as chatActions } from "./reducers/chat_rooms";
+import chatRooms, { actions as chatRoomsActions } from "./reducers/chat_rooms";
 import loading, { actions as loadingActions } from "./reducers/loading";
 import rootSaga from "./middleware/root_saga";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
-  reducer: { chatRooms, authorization, loading },
+  reducer: { chatRooms, authorization, loading},
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
     sagaMiddleware,
@@ -19,7 +19,7 @@ const store = configureStore({
 
 sagaMiddleware.run(rootSaga);
 
-const actions = { ...authorizationActions, ...loadingActions, ...chatActions };
+const actions = { ...authorizationActions, ...loadingActions, ...chatRoomsActions};
 
 export { actions };
 export default store;

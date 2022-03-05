@@ -15,18 +15,17 @@ import {
 import "./chat_body.css";
 
 function ChatBody(props) {
-  const chatRooms = useSelector((state) => state.chatRooms);
-  const authorization = useSelector((state) => state.authorization);
-  const loading = useSelector((state) => state.loading);
+  const {rooms,currentRoomId} = useSelector((state) => state.chatRooms);
+  const {authorized, userId} = useSelector((state) => state.authorization);
   const dispatch = useDispatch();
   return (
     <div className="chat-body">
-      <h1 className="chat-body__header">CHAT</h1>
+      <h1 className="chat-body__header">CHAT APP...</h1>
       <div className="chat-body__content">
-        {authorization.authorized ? (
+        {authorized ? (
           <>
             <RoomCarousel
-              items={chatRooms.rooms}
+              items={rooms}
               changeRoom={(id) => dispatch(actions.changeRoom({ id }))}
             ></RoomCarousel>
             <RoomJoinPanel
@@ -35,15 +34,15 @@ function ChatBody(props) {
             ></RoomJoinPanel>
             <MessageContainer
               messages={
-                chatRooms.currentRoomId
-                  ? chatRooms.rooms[chatRooms.currentRoomId].messages
+                currentRoomId
+                  ? rooms[currentRoomId].messages
                   : []
               }
-              userId={authorization.userId}
+              userId={userId}
             ></MessageContainer>
             <ChatInput
               sendMessage={(message) => {
-                ADD_MESSAGE_TO_ROOM(chatRooms.currentRoomId, message);
+                ADD_MESSAGE_TO_ROOM(currentRoomId, message);
               }}
             ></ChatInput>
           </>

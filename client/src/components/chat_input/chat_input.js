@@ -8,6 +8,7 @@ function ChatInput(props) {
   function changeHandler(e) {
     setMessage(e.target.textContent);
   }
+
   function sendMessageHandler() {
     if (message.length > 0) {
       sendMessage(message);
@@ -15,6 +16,7 @@ function ChatInput(props) {
       inpRef.current.textContent = "";
     }
   }
+  
   return (
     <div className="chat-input">
       <div

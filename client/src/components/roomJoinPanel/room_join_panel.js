@@ -19,7 +19,6 @@ function RoomJoinPanel(props) {
       <button
         className="room-join-panel__join-button"
         onClick={() => {
-          console.log("join " + room);
           joinToRoom(room);
         }}
       >
