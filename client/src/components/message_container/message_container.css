@@ -9,8 +9,10 @@
   overflow: auto;
   box-shadow: 0px 0px 1px -5px rgba(34, 60, 80, 0.6);
 }
-.message-container::-webkit-scrollbar{ display: none; }
-.message-container{
+.message-container::-webkit-scrollbar {
+  display: none;
+}
+.message-container {
   scrollbar-width: none;
 }
 .message-container_message {
@@ -35,14 +37,14 @@
 }
 .self-message {
   position: relative;
-  background-color: rgb(170, 247, 121);
-  border: 1px solid rgb(170, 247, 121);
+  background-color: var(--second-color);
+  border: 1px solid var(--second-color);
   border-radius: 20px 20px 0 20px;
   margin-right: 10vw;
   align-self: flex-end;
 }
 .self-message:after {
-  border-bottom: 8px solid rgb(170, 247, 121);
+  border-bottom: 8px solid var(--second-color);
   border-right: 7px solid white;
   position: absolute;
   bottom: -1px;
@@ -54,5 +56,5 @@
 }
 .message-container_message_info {
   font-weight: lighter;
-  color: rgba(0, 0, 0, 0.658)
+  color: rgba(0, 0, 0, 0.658);
 }

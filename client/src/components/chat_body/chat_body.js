@@ -15,8 +15,8 @@ import {
 import "./chat_body.css";
 
 function ChatBody(props) {
-  const {rooms,currentRoomId} = useSelector((state) => state.chatRooms);
-  const {authorized, userId} = useSelector((state) => state.authorization);
+  const { rooms, currentRoomId } = useSelector((state) => state.chatRooms);
+  const { authorized, userId } = useSelector((state) => state.authorization);
   const dispatch = useDispatch();
   return (
     <div className="chat-body">
@@ -33,11 +33,7 @@ function ChatBody(props) {
               createRoom={CREATE_ROOM}
             ></RoomJoinPanel>
             <MessageContainer
-              messages={
-                currentRoomId
-                  ? rooms[currentRoomId].messages
-                  : []
-              }
+              messages={currentRoomId ? rooms[currentRoomId].messages : []}
               userId={userId}
             ></MessageContainer>
             <ChatInput

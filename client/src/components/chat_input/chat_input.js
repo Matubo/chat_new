@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import "./chat_input.css";
+import send_orange from "../../assets/img/Send_orange.png";
+import send_black from "../../assets/img/Send_black.png";
 
 function ChatInput(props) {
   const { sendMessage } = props;
@@ -16,11 +18,11 @@ function ChatInput(props) {
       inpRef.current.textContent = "";
     }
   }
-  
+
   return (
     <div className="chat-input">
       <div
-        className="test"
+        className="chat-input_input_field"
         type="text"
         contenteditable="true"
         placeholder="Text here.."
@@ -29,7 +31,7 @@ function ChatInput(props) {
         onInput={changeHandler}
       ></div>
       <button className="chang-input__send" onClick={sendMessageHandler}>
-        Отправить
+        <img src={send_orange}></img>
       </button>
     </div>
   );

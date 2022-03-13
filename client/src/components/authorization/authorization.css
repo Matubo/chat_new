@@ -1,9 +1,9 @@
-.authorization-body{
-  height:100vh;
+.authorization-body {
+  height: 100vh;
   width: 100vw;
-  position:absolute;
-  top:0;
-  left:0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .authorization-body__pop-up {
   position: absolute;
@@ -11,21 +11,24 @@
   right: 50vw;
   transform: translate(50%, -50%);
   padding: 15px;
-  background-color: #f0f0f5;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 10px;
+  background-color: var(--main-color);
 }
-.authorization-body__pop-up-header{
-  font-weight:bolder;
+.authorization-body__pop-up-header {
+  font-weight: bolder;
   border-bottom: 1px solid black;
 }
-.authorization-body__pop-up__username-input{
-  border:1px solid black;
-  border-radius:5px;
+.authorization-body__pop-up__username-input {
+  margin-right: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
 }
-.authorization-body__pop-up-login{
-font-weight: lighter;
+.authorization-body__pop-up__username-input:focus {
+  border: 1px solid var(--main-color);
+  outline: none !important;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);
 }
-.authorization-body__pop-up__authorization-button{
-  border-radius:5px;
+.authorization-body__pop-up-login {
+  font-weight: lighter;
 }

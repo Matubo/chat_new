@@ -4,16 +4,18 @@
   overflow: hidden;
 }
 .chat-body__header {
+  background-color: var(--main-color);
   width: 100%;
   text-align: center;
   border-bottom: rgba(34, 60, 80, 0.6) solid 1px;
-  box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
   font-weight: bolder;
-  font-size:x-large;
+  font-size: x-large;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .chat-body__content {
   overflow: hidden;
   height: 90vh;
-  overflow: hidden;
 }
