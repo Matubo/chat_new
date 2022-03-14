@@ -25,6 +25,7 @@
   white-space: nowrap;
   overflow-x: hidden;
   scrollbar-width: none;
+  word-wrap: normal;
 }
 .chat-input_input_field:focus {
   outline: none !important;

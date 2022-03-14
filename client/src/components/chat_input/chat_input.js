@@ -8,7 +8,7 @@ function ChatInput(props) {
   const [message, setMessage] = useState("");
   const inpRef = useRef("");
   function changeHandler(e) {
-    setMessage(e.target.textContent);
+    setMessage(e.target.innerText);
   }
 
   function sendMessageHandler() {

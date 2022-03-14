@@ -4,6 +4,7 @@
   overflow: hidden;
 }
 .chat-body__header {
+  position:relative;
   background-color: var(--main-color);
   width: 100%;
   text-align: center;
@@ -13,9 +14,9 @@
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  z-index: 10000;
 }
 
 .chat-body__content {
   overflow: hidden;
-  height: 90vh;
 }

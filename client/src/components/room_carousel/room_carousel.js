@@ -15,7 +15,7 @@ const getElemDOM=(id,fun)=>{
       </button>
 }
 
-function RootCarousel(props) {
+/* function RootCarousel(props) {
   const { items, changeRoom } = props;
     let carouselDOM = [];
 
@@ -29,7 +29,6 @@ function RootCarousel(props) {
   return (
     <OwlCarousel
       className="owl-theme carousel"
-      loop
       margin={10}
       items={10}
       loop={false}
@@ -38,6 +37,22 @@ function RootCarousel(props) {
     >
       {carouselDOM}
     </OwlCarousel>
-  );
+  ); 
+}*/
+
+function RootCarousel(props){
+  const { items, changeRoom } = props;
+  let carouselDOM = [];
+  for (let key in items) {
+    const { id } = items[key];
+    carouselDOM.push(getElemDOM(id,changeRoom));
+  }
+
+  return(
+    <div className='test'>
+      {carouselDOM}
+    </div>
+  )
 }
+
 export default RootCarousel;
