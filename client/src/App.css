@@ -6,9 +6,11 @@ body {
 }
 button {
   background-color: var(--main-color);
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--second-color);
+  border-image:  radial-gradient(var(--border-color));
   border-radius: 5px;
 }
+
 button:hover {
   box-shadow: inset 0 0 5px var(--shadow-color);
 }
@@ -16,9 +18,9 @@ button:active {
   box-shadow: inset 0 0 10px var(--shadow-color);
 }
 * {
-  --main-color: #ffd06b;
-  --second-color: #e8ab56;
+  --main-color: #e8ab56;
+  --second-color: #F57F4E;
   --gray-first: #f0f0f5;
-  --border-color: #e8ab56;
+  --border-color: #F57F4E,#FFC852;
   --shadow-color: rgba(0, 0, 0, 0.25);
 }

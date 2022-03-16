@@ -5,8 +5,9 @@ import send_black from "../../assets/img/Send_black.png";
 
 function ChatInput(props) {
   const { sendMessage } = props;
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("sdasd");
   const inpRef = useRef("");
+  
   function changeHandler(e) {
     setMessage(e.target.innerText);
   }
@@ -24,9 +25,8 @@ function ChatInput(props) {
       <div
         className="chat-input_input_field"
         type="text"
-        contenteditable="true"
+        contentEditable="true"
         placeholder="Text here.."
-        value={message}
         ref={inpRef}
         onInput={changeHandler}
       ></div>

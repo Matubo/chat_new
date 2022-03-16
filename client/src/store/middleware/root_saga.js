@@ -9,7 +9,7 @@ function* acceptJoinToRoom(res) {
     let currentRoomState = yield select(currentRoomsState);
     if (currentRoomState.rooms[`${room.id}`] == undefined) {
       yield put(actions.addRoom({ room: room, id: room.id }));
-      if(!currentRoomState.currentRoom){
+      if(currentRoomState.currentRoom==undefined){
         yield put(actions.changeRoom({id:room.id}))
       }
     }

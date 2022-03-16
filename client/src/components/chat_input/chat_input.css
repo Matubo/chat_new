@@ -1,8 +1,8 @@
 .chat-input {
   position: fixed;
-  left: 50vw;
+  left: 55vw;
   transform: translate(-50%, 0);
-  bottom: 0;
+  bottom: 15px;
   height: 5vh;
   margin: 5px;
   width: 80vw;
