@@ -1,13 +1,19 @@
+import {useRef,useEffect} from "react";
 import "./message_container.css";
 
 function MessageField(props) {
   const { messages, userId } = props;
+  const Ref = useRef(null);
+  useEffect(()=>{
+    console.log(Ref)
+    return function(){ if(Ref.current!=null)Ref.current.scrollIntoView()}
+  })
   return (
     <div className="message-container">
       {messages.length>0 ? (
         messages.map((elem, index) => {
           return (
-            <div
+            <div ref={Ref}
               className={
                 userId == elem.username
                   ? "message-container_message self-message"
