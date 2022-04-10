@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./room_join_panel.css";
 
 function RoomJoinPanel(props) {
-  const { joinToRoom, createRoom } = props;
+  const { joinToRoom, createRoom, roomID } = props;
   const [room, setRoom] = useState(0);
   function changeHandler(e) {
     setRoom(e.target.value);
@@ -24,7 +24,19 @@ function RoomJoinPanel(props) {
       >
         Присоединиться
       </button>
-      <button className="room-join-panel__create-room-button" onClick={createRoom}>Создать новую</button>
+      <button
+        className="room-join-panel__create-room-button"
+        onClick={createRoom}
+      >
+        Создать новую
+      </button>
+      {roomID ? (
+        <p className="room-join-panel__current-room">
+          Сейчас вы в комнате {roomID}
+        </p>
+      ) : (
+        <p></p>
+      )}
     </div>
   );
 }

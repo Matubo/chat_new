@@ -1,7 +1,7 @@
 .message-container {
   height: 70vh;
   margin: 15px;
-  margin-left:10vw;
+  margin-left: 10vw;
   padding: 10px;
   width: auto;
   display: flex;
@@ -27,12 +27,12 @@
   display: inline-block;
   align-self: flex-start;
 }
-.message-container_message_text{
-  white-space: pre-wrap
+.message-container_message_text {
+  white-space: pre-wrap;
 }
 .message-container_message:not(.self-message):before {
   border-bottom: 10px solid #c9c9c9;
-  border-left: 9px solid white;
+  border-left: 9px solid var(--background-color);
   position: absolute;
   bottom: 0px;
   left: -9px;
@@ -48,7 +48,7 @@
 }
 .self-message:after {
   border-bottom: 8px solid var(--second-color);
-  border-right: 7px solid white;
+  border-right: 7px solid var(--background-color);
   position: absolute;
   bottom: -1px;
   right: -8px;

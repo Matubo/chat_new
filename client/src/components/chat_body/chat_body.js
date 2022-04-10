@@ -31,10 +31,12 @@ function ChatBody(props) {
             <RoomJoinPanel
               joinToRoom={JOIN_TO_ROOM}
               createRoom={CREATE_ROOM}
+              roomID={currentRoomId}
             ></RoomJoinPanel>
             <MessageContainer
               messages={currentRoomId ? rooms[currentRoomId].messages : []}
               userId={userId}
+              roomID={currentRoomId}
             ></MessageContainer>
             <ChatInput
               sendMessage={(message) => {

@@ -4,34 +4,28 @@
   padding: 5px;
   border-bottom: rgba(34, 60, 80, 0.6) solid 1px;
 }
-.carousel__item{
-  margin:5px;
-  min-width:3em;
-}
-.carousel__item:hover {
-  border: 2px solid var(--border-color);
-}
-.carousel__item:active {
-  background-color: var(--second-color);
+.carousel__item {
+  margin: 5px;
+  min-width: 3em;
 }
 
-.test{
+.test {
   background-color: var(--main-color);
-  position:fixed;
-  height:100vh;
-  width:10vw;
-  top:0;
-  display:flex;
+  position: fixed;
+  height: 100vh;
+  width: 10vw;
+  top: 0;
+  display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
   border-right: 1px solid var(--border-color);
-  z-index:1000;
+  z-index: 1000;
 }
- .carousel__item:first-child{
-  margin-top:55px !important;
-} 
+.carousel__item:first-child {
+  margin-top: 55px !important;
+}
 .test::-webkit-scrollbar {
   width: 0;
   height: 0;
