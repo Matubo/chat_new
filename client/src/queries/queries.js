@@ -9,10 +9,10 @@ import new_room_message from "./responses/new_messages_on_room";
 import accept_set_username from "./responses/accept_set_username";
 import store  from "../store/store";
 
-const ADD_MESSAGE_TO_ROOM = add_message_to_room(socket);
-const SET_USERNAME = set_username(socket);
-const CREATE_ROOM = create_room(socket);
-const JOIN_TO_ROOM = join_to_room(socket);
+const ADD_MESSAGE_TO_ROOM_QUERY = add_message_to_room(socket);
+const SET_USERNAME_QUERY = set_username(socket);
+const CREATE_ROOM_QUERY = create_room(socket);
+const JOIN_TO_ROOM_QUERY = join_to_room(socket);
 
 accept_create_room(socket)((data) => {
   store.dispatch({ type: "queries/accept_create_room", data });

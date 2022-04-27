@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <button
         onClick={() => {
-          CREATE_ROOM();
+          CREATE_ROOM({});
         }}
       >create room</button>
             <button
@@ -17,7 +17,7 @@ function App() {
       >add mes</button>
             <button
         onClick={() => {
-          JOIN_TO_ROOM({id:1});
+          JOIN_TO_ROOM({id:1})
         }}
       >join</button>
             <button

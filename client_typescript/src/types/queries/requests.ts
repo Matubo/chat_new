@@ -13,11 +13,16 @@ interface JoinToRoomParams{
   id:number
 }
 
-interface AddNewMessage{
+interface AddNewMessageParams{
   id:number,
   message:string
 }
 
 interface CreateRoomParams{}
 
-export type RequestParams=SetUsernameParams|JoinToRoomParams|AddNewMessage|CreateRoomParams
+export type SetUsernameFunction = (params:SetUsernameParams)=>void ;
+export type JoinToRoomFunction = (params:JoinToRoomParams)=>void ;
+export type AddNewMessageFunction = (params:AddNewMessageParams)=>void
+export type CreateRoomFunction = (params:CreateRoomParams)=>void
+
+export type RequestParams=SetUsernameParams|JoinToRoomParams|AddNewMessageParams|CreateRoomParams
