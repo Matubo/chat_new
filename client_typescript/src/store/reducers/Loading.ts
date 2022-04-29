@@ -22,7 +22,8 @@ export const loadingReducer = (
         loading: false,
       };
     case LoadingActionsTypes.LOADING_ERROR:
-      return { ...state, error: action.payload };
+      const {error}=action.payload;
+      return { ...state, error: error };
     default:
       return state;
   }

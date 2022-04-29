@@ -6,7 +6,7 @@ import { IAuthorization } from "../../types/states/AuthorizationTypes";
 
 const initialState: IAuthorization = {
   authorized: false,
-  userName: null,
+  username: null,
 };
 
 export const authorizationReducer = (
@@ -15,14 +15,15 @@ export const authorizationReducer = (
 ): IAuthorization => {
   switch (action.type) {
     case AuthorizationActionTypes.LOG_IN:
+      const { username }=action.payload;
       return {
         authorized: true,
-        userName: action.payload,
+        username
       };
     case AuthorizationActionTypes.LOG_OUT:
       return {
         authorized: false,
-        userName: null,
+        username: null,
       };
     default:
       return state;

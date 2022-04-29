@@ -1,28 +1,28 @@
 export enum RequestTypes {
-  SET_USERNAME = "set_username",
-  JOIN_TO_ROOM = "join_to_room",
-  ADD_NEW_MESSAGE = "add_new_message",
-  CREATE_ROOM = "create_room",
+  SET_USERNAME_REQUEST = "set_username",
+  JOIN_TO_ROOM_REQUEST = "join_to_room",
+  SEND_MESSAGE = "add_new_message",
+  CREATE_ROOM_REQUEST = "create_room",
 }
 
-interface SetUsernameParams{
+interface SetUsernameRequestParams{
   username:string
 }
 
-interface JoinToRoomParams{
-  id:number
+interface JoinToRoomRequestParams{
+  id:string
 }
 
-interface AddNewMessageParams{
-  id:number,
+interface SendMessageParams{
+  id:string,
   message:string
 }
 
-interface CreateRoomParams{}
+interface CreateRoomRequestParams{}
 
-export type SetUsernameFunction = (params:SetUsernameParams)=>void ;
-export type JoinToRoomFunction = (params:JoinToRoomParams)=>void ;
-export type AddNewMessageFunction = (params:AddNewMessageParams)=>void
-export type CreateRoomFunction = (params:CreateRoomParams)=>void
+export type SetUsernameFunction = (params:SetUsernameRequestParams)=>void ;
+export type JoinToRoomFunction = (params:JoinToRoomRequestParams)=>void ;
+export type SendMessageFunction = (params:SendMessageParams)=>void
+export type CreateRoomFunction = (params:CreateRoomRequestParams)=>void
 
-export type RequestParams=SetUsernameParams|JoinToRoomParams|AddNewMessageParams|CreateRoomParams
+export type RequestParams=SetUsernameRequestParams|JoinToRoomRequestParams|SendMessageParams|CreateRoomRequestParams

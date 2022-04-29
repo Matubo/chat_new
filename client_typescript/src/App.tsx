@@ -1,32 +1,43 @@
-import React, {FC} from "react";
+import React, {FC,useState} from "react";
 import "./App.css";
-import {ADD_MESSAGE_TO_ROOM,CREATE_ROOM,JOIN_TO_ROOM,SET_USERNAME} from "./queries"
+import { useSelector, useDispatch} from "react-redux";
+import {CREATE_ROOM_REQUEST,JOIN_TO_ROOM_REQUEST,SEND_MESSAGE,SET_USERNAME_REQUEST} from "./queries"
+import {CHANGE_ROOM} from './store/action-creator/Actions'
 
-function App() {
+export default function App(){
+  const storeState=useSelector((state) => state);
+  const dispatch = useDispatch()
+  const [room, setRoom] = useState('0');
   return (
     <div className="App">
-      <button
+       <button
         onClick={() => {
-          CREATE_ROOM({});
+          CREATE_ROOM_REQUEST({})
         }}
       >create room</button>
             <button
         onClick={() => {
-          ADD_MESSAGE_TO_ROOM({id:1,message:'Jopa'});
+          SEND_MESSAGE({id:'1',message:'Hellow there'})
         }}
-      >add mes</button>
+      >add mess</button>
             <button
         onClick={() => {
-          JOIN_TO_ROOM({id:1})
+         SET_USERNAME_REQUEST({username:"Matthew"})
+        }}
+      >setuser</button> 
+      <input type="number" name="" id="" onChange={(e)=>{setRoom(e.target.value)}} value={room}/>
+      <button
+        onClick={() => {
+          JOIN_TO_ROOM_REQUEST({id:room})
         }}
       >join</button>
-            <button
-        onClick={() => {
-          SET_USERNAME({username:'matthew'});
-        }}
-      >setus</button>
+      <button
+        onClick={()=>{dispatch(CHANGE_ROOM({id:room}))}}
+      >change room
+      </button>
+      <button onClick={()=>{console.log(storeState)}}>
+       store output 
+      </button>
     </div>
   );
 }
-
-export default App;

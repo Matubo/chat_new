@@ -15,8 +15,8 @@ export const chatRoomsReducer = (
 ): IChatRooms => {
   switch (action.type) {
     case ChatRoomsActionTypes.ADD_ROOM: {
-      const { id, room } = action.payload;
-      state.rooms[id] = room;
+      const { room } = action.payload;
+      state.rooms[room.id] = room;
       return { ...state };
     }
     case ChatRoomsActionTypes.CHANGE_ROOM: {

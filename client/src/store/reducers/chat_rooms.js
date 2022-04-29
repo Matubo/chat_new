@@ -9,8 +9,8 @@ const chatRooms = createSlice({
   reducers: {
     addRoom(state, action) {
       console.log(actions);
-      const { room, id } = action.payload;
-      state.rooms[id] = room;
+      const { room } = action.payload;
+      state.rooms[room.id] = room;
     },
     changeRoom(state, action) {
       const { id } = action.payload;

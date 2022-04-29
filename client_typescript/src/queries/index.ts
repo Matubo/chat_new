@@ -1,12 +1,22 @@
-import { AddNewMessageFunction, CreateRoomFunction, JoinToRoomFunction, RequestTypes, SetUsernameFunction } from '../types/queries/requests';
+import { ADD_ROOM,SET_NEW_MESSAGES,SET_USERNAME } from '../store/action-creator/Actions';
+import { SendMessageFunction,CreateRoomFunction,JoinToRoomFunction,SetUsernameFunction, RequestTypes } from '../types/queries/requests';
+import { AcceptSetUsernameFunctionParams, AddRoomFunctionParams, NewRoomMessageFunctionparams, ResponsesTypes } from '../types/queries/responses';
 import { socket } from './IO';
 import request from './requests/request';
+import response from './responses/response'
+import { store } from '../store/store';
 
 const request_template=request(socket)
+const response_template=response(socket)
 
-const ADD_MESSAGE_TO_ROOM_QUERY:AddNewMessageFunction = request_template(RequestTypes.ADD_NEW_MESSAGE);
-const SET_USERNAME_QUERY:SetUsernameFunction = request_template(RequestTypes.SET_USERNAME);
-const CREATE_ROOM_QUERY:CreateRoomFunction = request_template(RequestTypes.CREATE_ROOM);
-const JOIN_TO_ROOM_QUERY:JoinToRoomFunction =request_template(RequestTypes.JOIN_TO_ROOM);
+const SEND_MESSAGE:SendMessageFunction = request_template(RequestTypes.SEND_MESSAGE);
+const SET_USERNAME_REQUEST:SetUsernameFunction = request_template(RequestTypes.SET_USERNAME_REQUEST);
+const CREATE_ROOM_REQUEST:CreateRoomFunction = request_template(RequestTypes.CREATE_ROOM_REQUEST);
+const JOIN_TO_ROOM_REQUEST:JoinToRoomFunction =request_template(RequestTypes.JOIN_TO_ROOM_REQUEST);
 
-export {ADD_MESSAGE_TO_ROOM_QUERY,SET_USERNAME_QUERY,CREATE_ROOM_QUERY,JOIN_TO_ROOM_QUERY}
+response_template(ResponsesTypes.ACCEPT_CREATE_ROOM)((data:AddRoomFunctionParams)=>store.dispatch(ADD_ROOM(data)));
+response_template(ResponsesTypes.ACCEPT_JOIN_TO_ROOM)((data:AddRoomFunctionParams)=>store.dispatch(ADD_ROOM(data)));
+response_template(ResponsesTypes.ACCEPT_SET_USERNAME)((data:AcceptSetUsernameFunctionParams)=>store.dispatch(SET_USERNAME(data)));
+response_template(ResponsesTypes.NEW_ROOM_MESSAGE)((data:NewRoomMessageFunctionparams)=>store.dispatch(SET_NEW_MESSAGES(data)))
+
+export {SEND_MESSAGE,SET_USERNAME_REQUEST,CREATE_ROOM_REQUEST,JOIN_TO_ROOM_REQUEST}

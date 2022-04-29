@@ -13,7 +13,7 @@ interface FinishLoadingAction {
 
 interface LoadingErrorAction {
   type: LoadingActionsTypes.LOADING_ERROR;
-  payload: string;
+  payload: {error:string};
 }
 
 export type LoadingActions =

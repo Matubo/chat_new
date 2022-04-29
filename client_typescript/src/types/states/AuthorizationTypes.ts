@@ -1,4 +1,4 @@
 export interface IAuthorization {
   authorized: boolean;
-  userName: null | string;
+  username: null | string;
 }
