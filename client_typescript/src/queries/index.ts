@@ -17,8 +17,8 @@ import {
   ResponsesTypes,
 } from "../types/queries/responses";
 import { socket } from "./io";
-import request from "./requests/request";
-import response from "./responses/response";
+import request from "./requests/Request";
+import response from "./responses/Response";
 import { store } from "../store/store";
 
 const requestTemplate = request(socket);
