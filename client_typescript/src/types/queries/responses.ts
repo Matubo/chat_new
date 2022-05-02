@@ -1,4 +1,4 @@
-import { IChatRoom, IMessage } from "../states/ChatRoomsTypes"
+import { IChatRoom, IMessage } from "../states/ChatRoomsTypes";
 
 export enum ResponsesTypes {
   ACCEPT_CREATE_ROOM = "accept_create_room",
@@ -7,20 +7,22 @@ export enum ResponsesTypes {
   NEW_ROOM_MESSAGE = "new_room_message",
 }
 
-export type AddRoomFunctionParams={
-  status:boolean,
-  room?:IChatRoom
-}
+export type AddRoomFunctionParams = {
+  status: boolean;
+  room?: IChatRoom;
+};
 
-export type AcceptSetUsernameFunctionParams={
-  status:boolean,
-  username?:string
-}
+export type AcceptSetUsernameFunctionParams = {
+  status: boolean;
+  username?: string;
+};
 
-export type NewRoomMessageFunctionparams={
-  status:boolean,
-  message:IMessage
-}
+export type NewRoomMessageFunctionParams = {
+  status: boolean;
+  message: IMessage;
+};
 
-
-export type ResponsesParams=AddRoomFunctionParams|AcceptSetUsernameFunctionParams|NewRoomMessageFunctionparams
+export type ResponsesParams =
+  | AddRoomFunctionParams
+  | AcceptSetUsernameFunctionParams
+  | NewRoomMessageFunctionParams;
