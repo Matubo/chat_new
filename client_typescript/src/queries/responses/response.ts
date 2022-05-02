@@ -3,9 +3,9 @@ import { ResponsesParams, ResponsesTypes } from "../../types/queries/responses";
 
 export default function response(socket: Socket) {
   return function (type: ResponsesTypes) {
-    return function (callback_fun: Function) {
+    return function (callbackFun: Function) {
       socket.on(type, (data: ResponsesParams) => {
-        callback_fun(data);
+        callbackFun(data);
       });
     };
   };
