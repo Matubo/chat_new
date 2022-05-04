@@ -3,45 +3,35 @@ import {
   ChatRoomsActions,
   ChatRoomsActionTypes,
 } from "../../types/actions/ChatRoomsActions";
-import { AuthorizationActionTypes } from "../../types/actions/AuthorizationActions";
-import { NewRoomMessageFunctionParams } from "../../types/queries/responses";
-
-/* type dataParams= {status:boolean,} */
+import { AuthorizationAction, AuthorizationActionTypes } from "../../types/actions/AuthorizationActions";
+import { AcceptSetUsernameFunctionParams, AddRoomFunctionParams, ChangeRoomFunctionParams, NewRoomMessageFunctionParams } from "../../types/queries/responses";
 
 export const SET_NEW_MESSAGES = (
   data: NewRoomMessageFunctionParams
 ): ChatRoomsActions => {
-  console.log("SET_NEW_MESSAGES", data);
+    console.log("SET_NEW_MESSAGES", data);
+    const { id, message }=data;
   return {
     type: ChatRoomsActionTypes.SET_NEW_MESSAGE,
-    payload: { id: data.id, message: data.message },
+    payload: { id:id, message: message },
   };
 };
 
-/* export const SET_NEW_MESSAGES = (data: NewRoomMessageFunctionParams) => {
-  console.log("SET_NEW_MESSAGES", data);
-  /*   const { status, ...payload } = data; 
-  try {
-    /*     if (status == false) new Error("status FALSE"); 
-    return { type: ChatRoomsActionTypes.SET_NEW_MESSAGE, payload: data };
-  } catch (e) {
-    console.error("SET_NEW_MESSAGES", e, data);
-  }
-}; */
-
-export const CHANGE_ROOM = (data: any) => {
+export const CHANGE_ROOM = (data: ChangeRoomFunctionParams) => {
   return (dispatch: Dispatch<ChatRoomsActions>) => {
-    console.log("change_room", data);
-    dispatch({ type: ChatRoomsActionTypes.CHANGE_ROOM, payload: data });
+    console.log("CHANGE_ROOM", data);
+    const { id } = data;
+    dispatch({ type: ChatRoomsActionTypes.CHANGE_ROOM, payload: {id} });
   };
 };
 
-export const SET_USERNAME = (data: any) => {
+export const SET_USERNAME = (data: AcceptSetUsernameFunctionParams):AuthorizationAction => {
   console.log("SET_USERNAME", data);
-  return { type: AuthorizationActionTypes.LOG_IN, payload: data };
+  const { username } = data;
+  return { type: AuthorizationActionTypes.LOG_IN, payload: {username} };
 };
 
-export const ADD_ROOM = (data: any) => {
+export const ADD_ROOM = (data: AddRoomFunctionParams):ChatRoomsActions=> {
   console.log("ADD_ROOM", data);
   return { type: ChatRoomsActionTypes.ADD_ROOM, payload: data };
 };

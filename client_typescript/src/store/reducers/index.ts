@@ -9,4 +9,4 @@ export const reducer = combineReducers({
   authorization: authorizationReducer,
 });
 
-export type RootReducer = ReturnType<typeof reducer>;
+export type RootState = ReturnType<typeof reducer>;

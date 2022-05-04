@@ -8,7 +8,7 @@ export enum ChatRoomsActionTypes {
 
 interface AddRoomAction {
   type: ChatRoomsActionTypes.ADD_ROOM;
-  payload: { room: IChatRoom; id: string };
+  payload: { room: IChatRoom };
 }
 
 interface ChangeRoomAction {
@@ -24,4 +24,5 @@ interface SetNewMessageAction {
 export type ChatRoomsActions =
   | AddRoomAction
   | ChangeRoomAction
-  | SetNewMessageAction;
+  | SetNewMessageAction
+  | ChangeRoomAction;

@@ -9,12 +9,12 @@ export enum ResponsesTypes {
 
 export type AddRoomFunctionParams = {
   status: boolean;
-  room?: IChatRoom;
+  room: IChatRoom;
 };
 
 export type AcceptSetUsernameFunctionParams = {
   status: boolean;
-  username?: string;
+  username: string;
 };
 
 export type NewRoomMessageFunctionParams = {
@@ -22,6 +22,10 @@ export type NewRoomMessageFunctionParams = {
   id: any;
   message: IMessage;
 };
+
+export type ChangeRoomFunctionParams= {
+  id:string
+}
 
 export type ResponsesParams =
   | AddRoomFunctionParams

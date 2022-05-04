@@ -1,0 +1,17 @@
+.chatApp_header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+.chatApp_header{
+    height:35px;
+}
+.chatApp_header__icon{
+    height:100%;
+    margin:10px;
+}
+.chatApp_header__text{
+    height:100%;
+    margin:10px;
+}
