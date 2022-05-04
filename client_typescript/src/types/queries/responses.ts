@@ -19,6 +19,7 @@ export type AcceptSetUsernameFunctionParams = {
 
 export type NewRoomMessageFunctionParams = {
   status: boolean;
+  id: any;
   message: IMessage;
 };
 

@@ -1,7 +1,7 @@
 import {
   ChatRoomsActions,
   ChatRoomsActionTypes,
-} from "../../types/actions/CharRoomsActions";
+} from "../../types/actions/ChatRoomsActions";
 import { IChatRooms } from "../../types/states/ChatRoomsTypes";
 
 const initialState: IChatRooms = {
