@@ -1,10 +1,10 @@
 import React, {FC,useState} from 'react';
 
-type AuthorizationWindowParamTypes={
+type AuthorizationWindowPropTypes={
     callback:Function
 }
 
-const AuthorizationWindow = ({callback}:AuthorizationWindowParamTypes) => {
+const AuthorizationWindow = ({callback}:AuthorizationWindowPropTypes) => {
     const [user, setUser]=useState('');
 
     const clickHandler=()=>{

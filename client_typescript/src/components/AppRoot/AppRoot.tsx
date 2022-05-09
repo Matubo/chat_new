@@ -1,11 +1,10 @@
 import {FC} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/reducers';
-import ChatWindow from '../ChatWindow/ChatWindow';
 import Authorization from '../Authorization/Authorization';
 import './AppRoot.css';
-import { SET_USERNAME_REQUEST } from '../../queries';
-import { store } from '../../store/store';
+import { JOIN_TO_ROOM_REQUEST, SET_USERNAME_REQUEST } from '../../queries';
+import ConnectField from '../ConnectField/ConnectField';
 
 const ChatApp:FC = () => {
     let {authorized} = useSelector((store:RootState)=>store.authorization)
@@ -17,7 +16,9 @@ const ChatApp:FC = () => {
     }
     else{
     return  (
-        <ChatWindow/>
+    <>
+    <ConnectField callback={(data:string)=>dispatch(JOIN_TO_ROOM_REQUEST({id:data}))}></ConnectField>
+    </>
     )
     }
 };
