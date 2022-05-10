@@ -1,29 +1,36 @@
-import React, {FC,useState} from 'react';
+import React, { FC, useState } from "react";
 
-type AuthorizationWindowPropTypes={
-    callback:Function
-}
+type AuthorizationWindowPropTypes = {
+  callback: Function;
+};
 
-const AuthorizationWindow = ({callback}:AuthorizationWindowPropTypes) => {
-    const [user, setUser]=useState('');
+const AuthorizationWindow: FC<AuthorizationWindowPropTypes> = ({
+  callback,
+}) => {
+  const [user, setUser] = useState("");
 
-    const clickHandler=()=>{
-        if(user.length>3){
-        callback(user);
-        }
-    };
-
-    const changeInputHandler = (e:React.ChangeEvent<HTMLInputElement>)=>{
-        setUser(e.target.value)
+  const clickHandler = () => {
+    if (user.length > 3) {
+      callback(user);
     }
+  };
 
-    return (
-        <div className='authorization'>
-            <input type="text" className='authorization__input' value={user} onChange={changeInputHandler}/>
-            <button onClick={clickHandler}>Вход</button>
-            не автоизован
-        </div>
-    );
+  const changeInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser(e.target.value);
+  };
+
+  return (
+    <div className="authorization">
+      <input
+        type="text"
+        className="authorization__input"
+        value={user}
+        onChange={changeInputHandler}
+      />
+      <button onClick={clickHandler}>Вход</button>
+      не авторизован
+    </div>
+  );
 };
 
 export default AuthorizationWindow;

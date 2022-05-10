@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from "react";
 
-type ConnectFieldPropTypes={
-    callback:Function
-}
+type ConnectFieldPropTypes = {
+  callback: Function;
+};
 
-const ConnectField = ({callback}:ConnectFieldPropTypes) => {
-    const [room,setRoom]=useState('');
-    const chagneInputHandler = (e:React.ChangeEvent<HTMLInputElement>)=>{
-        setRoom(e.target.value);
-    }
-    const clickHandler = ()=>{
-        callback(room)
-    }
-    return (
-        <div>
-            <input type="number" name="" value={room} onChange={chagneInputHandler}/>
-            <button onClick={clickHandler}></button>
-        </div>
-    );
+const ConnectField: FC<ConnectFieldPropTypes> = ({ callback }) => {
+  const [room, setRoom] = useState("");
+  const changeInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRoom(e.target.value);
+  };
+  const clickHandler = () => {
+    callback(room);
+  };
+  return (
+    <div>
+      <input type="number" name="" value={room} onChange={changeInputHandler} />
+      <button onClick={clickHandler}></button>
+    </div>
+  );
 };
 
 export default ConnectField;

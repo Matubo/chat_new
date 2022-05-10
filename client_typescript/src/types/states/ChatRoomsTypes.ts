@@ -6,7 +6,7 @@ export interface IMessage {
 
 export interface IChatRoom {
   messages: IMessage[];
-  id: number;
+  id: string;
 }
 
 export interface IChatRooms {

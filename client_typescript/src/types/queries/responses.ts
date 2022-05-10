@@ -23,11 +23,12 @@ export type NewRoomMessageFunctionParams = {
   message: IMessage;
 };
 
-export type ChangeRoomFunctionParams= {
-  id:string
-}
+export type ChangeRoomFunctionParams = {
+  id: string;
+};
 
 export type ResponsesParams =
   | AddRoomFunctionParams
   | AcceptSetUsernameFunctionParams
-  | NewRoomMessageFunctionParams;
+  | NewRoomMessageFunctionParams
+  | ChangeRoomFunctionParams;
