@@ -8,6 +8,7 @@ export interface IChatRoom {
   messages: IMessage[];
   id: string;
   base64Image: string;
+  name: string;
 }
 
 export interface IChatRooms {
