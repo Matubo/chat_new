@@ -7,6 +7,7 @@ export interface IMessage {
 export interface IChatRoom {
   messages: IMessage[];
   id: string;
+  base64Image: string;
 }
 
 export interface IChatRooms {
