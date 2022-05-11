@@ -13,9 +13,9 @@ const ConnectField: FC<ConnectFieldPropTypes> = ({ callback }) => {
     callback(room);
   };
   return (
-    <div>
-      <input type="number" name="" value={room} onChange={changeInputHandler} />
-      <button onClick={clickHandler}></button>
+    <div className="connect-field">
+      <input className="connect-field__input input" type="number" name="" value={room} onChange={changeInputHandler} />
+      <button className="connect-field__button button" onClick={clickHandler}></button>
     </div>
   );
 };

@@ -23,11 +23,11 @@ const AuthorizationWindow: FC<AuthorizationWindowPropTypes> = ({
     <div className="authorization">
       <input
         type="text"
-        className="authorization__input"
+        className="authorization__input input"
         value={user}
         onChange={changeInputHandler}
       />
-      <button onClick={clickHandler}>Вход</button>
+      <button className="authorization__button" onClick={clickHandler}>Вход</button>
       не авторизован
     </div>
   );
