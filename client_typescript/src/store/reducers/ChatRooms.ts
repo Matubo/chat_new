@@ -2,9 +2,9 @@ import {
   ChatRoomsActions,
   ChatRoomsActionTypes,
 } from "../../types/actions/ChatRoomsActions";
-import { IChatRooms } from "../../types/states/ChatRoomsTypes";
+import { IChatRooms, IChatRoomsState } from "../../types/states/ChatRoomsTypes";
 
-const initialState: IChatRooms = {
+const initialState: IChatRoomsState = {
   rooms: {},
   currentRoom: null,
 };
@@ -12,7 +12,7 @@ const initialState: IChatRooms = {
 export const chatRoomsReducer = (
   state = initialState,
   action: ChatRoomsActions
-): IChatRooms => {
+): IChatRoomsState => {
   switch (action.type) {
     case ChatRoomsActionTypes.ADD_ROOM: {
       const { room } = action.payload;

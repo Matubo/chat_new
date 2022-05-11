@@ -11,7 +11,10 @@ export interface IChatRoom {
   name: string;
 }
 
-export interface IChatRooms {
-  rooms: { [key: string]: IChatRoom };
+export type IChatRooms = { [key: string]: IChatRoom };
+
+
+export interface IChatRoomsState {
+  rooms:IChatRooms,
   currentRoom: null | string;
 }
