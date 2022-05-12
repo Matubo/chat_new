@@ -12,7 +12,6 @@ export default function App()  {
             <img className='chatApp_header__icon' src={logo} alt='*'></img>
             <h1 className='chatApp_header__text'>Chat APP</h1>
             </div>
-          {/* <StoreTest></StoreTest> */}
          <AppRoot></AppRoot>
       </Provider>
     </div>

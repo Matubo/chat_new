@@ -1,45 +1,25 @@
 import React, {FC} from 'react';
-import { IChatRoom, IChatRooms } from '../../types/states/ChatRoomsTypes';
+import { IChatRooms } from '../../types/states/ChatRoomsTypes';
+import ChatElem from './ChatElem';
 
 type ChatListProps={
     rooms:IChatRooms,
-    callback?:Function|undefined
+    createRoomFun:Function,
+    changeRoomFun:Function
 }
 
-const ChatElement   = (room:IChatRoom)=>{
-    return (
-        <div className="chat-list__elem" key={room.id}>
-            <img src={`data:image/jpeg;base64,${room.base64Image}`}></img>
-            <p>{room.id} - {room.name}</p>
-        </div>
-    )
-}
+const ChatList:FC<ChatListProps> = ({rooms,createRoomFun,changeRoomFun}) => {
 
-type AddChatProps={
-    callback:Function
-}
-
-const AddChat = ({callback}:AddChatProps)=>{
-    return (
-        <div className="chat-list__elem">
-            <img></img>
-            <p>Добавить чат</p>
-        </div>
-    )
-}
-
-const ChatList:FC<ChatListProps> = ({rooms,callback=undefined}) => {
-
-    let list = [];
-    for (let room in rooms) {
-        list.push(ChatElement(rooms[room]))
+    let chatList = [];
+    for (let roomId in rooms) {
+        const {id,name,base64Image}=rooms[roomId]
+        chatList.push(<ChatElem id={id} name={name} base64Image={base64Image} callback={()=>{changeRoomFun(id)}} key={id}></ChatElem>)
       }
-
 
     return (
         <div className='chat-list'>
-            {callback?<AddChat callback={callback}></AddChat>:<></>}
-            {list}
+            <ChatElem id='0' name='Добавить комнату' base64Image='' callback={()=>{createRoomFun()}} key='0'></ChatElem>
+            {chatList}
         </div>
     );
 };
