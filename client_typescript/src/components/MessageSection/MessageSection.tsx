@@ -1,5 +1,6 @@
 import React, {FC, useState} from 'react';
 import { IMessage } from '../../types/states/ChatRoomsTypes';
+import MessageInput from './MessageInput';
 
 type MessageSectionProps={
     messages:IMessage[],
@@ -26,8 +27,9 @@ const MessageSection:FC<MessageSectionProps> = ({messages,sendMessCallback}) => 
     return (
         <div className='message-section'>
             {messagesDOM}
-            <input value={inputText} onChange={changeInputHandler}></input>
-            <button onClick={()=>sendMessCallback(inputText)}>send</button> 
+{/*             <input value={inputText} onChange={changeInputHandler}></input>
+            <button onClick={()=>sendMessCallback(inputText)}>send</button>  */}
+            <MessageInput callback={(str:string)=>{sendMessCallback(str)}}></MessageInput>
         </div>
     );
 };

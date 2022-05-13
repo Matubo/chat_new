@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import { IChatRooms } from '../../types/states/ChatRoomsTypes';
 import ChatElem from './ChatElem';
+import './ChatList.css';
 
 type ChatListProps={
     rooms:IChatRooms,

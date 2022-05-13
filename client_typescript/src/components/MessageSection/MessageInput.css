@@ -1,0 +1,8 @@
+[contenteditable][placeholder]:empty:before {
+    content: attr(placeholder);
+    position: absolute;
+    color: rgb(139, 139, 139);
+    background-color: transparent;
+    font-family: "SF Pro Display";
+    font-weight: lighter;
+  }
