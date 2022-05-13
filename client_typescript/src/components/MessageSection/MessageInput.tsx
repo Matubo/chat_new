@@ -1,4 +1,5 @@
-import React, {FC, useRef,useState} from 'react';
+import {FC, useRef} from 'react';
+import send from '../../assets/img/send.png'
 import './MessageInput.css';
 
 type MessageInputProps={
@@ -7,27 +8,23 @@ type MessageInputProps={
 
 const MessageInput:FC<MessageInputProps> = ({callback}) => {
     const inpRef = useRef<HTMLDivElement>(null);
-    const [message,setMessage]=useState("");
-    function changeHandler(e:React.ChangeEvent<HTMLDivElement>){
-        setMessage(e.target.innerText)
-    }
     function sendMessageHandler() {
-        let textContent=(inpRef.current as HTMLInputElement).innerText;
-        callback(message);
-         (inpRef.current as HTMLInputElement).textContent = ""; 
-      }
+      let textContent=(inpRef.current as HTMLInputElement).innerText;
+      if(textContent!=null){
+      if(textContent.length>0){
+        callback(textContent);
+         (inpRef.current as HTMLInputElement).innerText = ""; 
+      }}}
     return (
     <div className="send-field">    
       <div
         className="send-field__input input"
-        /* type="text"  */
         contentEditable="true"
         placeholder="Text here.."
         ref={inpRef} 
-         onInput={changeHandler} 
       ></div>
       <button className="send-field__button button" onClick={sendMessageHandler}>
-        <img></img>
+        <img src={send} className='send-field__button-icon' alt="#"></img>
       </button>
     </div>
     );

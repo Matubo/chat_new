@@ -6,3 +6,9 @@
     font-family: "SF Pro Display";
     font-weight: lighter;
   }
+  .send-field__button{
+    margin-top:15px;
+  }
+  .send-field__button-icon{
+    height: 50px;
+  }
