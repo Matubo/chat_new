@@ -1,3 +1,4 @@
+import { url } from 'inspector';
 import {FC} from 'react';
 import './ChatElem.css';
 
@@ -12,7 +13,7 @@ type ChatElemProps={
 const ChatElem:FC<ChatElemProps> = ({name,id,base64Image,callback})=>{
 return (        
     <div className="chat-elem" key={id} onClick={()=>{callback()}}>
-        <img className='chat-elem__img' src={`data:image/jpeg;base64,${base64Image}`}></img>
+        <div className='chat-elem__img' style={{backgroundImage:`url("data:image/jpeg;base64,${base64Image}")`}}></div>
         <p className='chat-elem__name'>{id} - {name}</p>
     </div>
 )

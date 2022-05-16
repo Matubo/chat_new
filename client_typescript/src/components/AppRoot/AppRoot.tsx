@@ -27,14 +27,14 @@ const ChatApp: FC = () => {
   } else {
     return (
       <>
-        <ConnectField
+{/*         <ConnectField
           callback={(data: string) =>
             dispatch(JOIN_TO_ROOM_REQUEST({ id: data }))
           }
-        ></ConnectField>
+        ></ConnectField> */}
         <div className="chat-field-grid">
         <ChatList rooms={rooms} createRoomFun={()=>{CREATE_ROOM_REQUEST({})}} changeRoomFun={(id:string)=>dispatch(CHANGE_ROOM({id}))}></ChatList>
-        {currentRoom?<MessageSection messages={rooms[currentRoom].messages} sendMessCallback={(message:string)=>{if(currentRoom){(SEND_MESSAGE({id:currentRoom,message}))}}}></MessageSection>:<></>}
+        <MessageSection messages={currentRoom?rooms[currentRoom].messages:undefined} sendMessCallback={(message:string)=>{if(currentRoom){(SEND_MESSAGE({id:currentRoom,message}))}}}></MessageSection>
         </div>
         <button style={{position:"absolute",top:0,right:0}} onClick={()=>{console.log({authorized,rooms,currentRoom})}}>console.log(store)</button>
         <button style={{position:"absolute",top:5,right:5}} onClick={()=>{JOIN_TO_ROOM_REQUEST({id:'1'})}}>join</button>

@@ -1,3 +1,11 @@
+.message-section{
+    background-color: lightgray;
+    overflow:auto;
+    overflow-x: hidden;
+}
+.message-section::-webkit-scrollbar{
+    width: 0px;
+}
 .message__text{
     white-space: pre-wrap;
 }

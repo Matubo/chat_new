@@ -4,7 +4,7 @@ import MessageInput from './MessageInput';
 import './MessageSection.css';
 
 type MessageSectionProps={
-    messages:IMessage[],
+    messages:IMessage[]|undefined,
     sendMessCallback:Function
 }
 
@@ -16,13 +16,17 @@ return(
 )
 }
 
-const MessageSection:FC<MessageSectionProps> = ({messages,sendMessCallback}) => {
+const MessageSection:FC<MessageSectionProps> = ({messages, sendMessCallback}) => {
+    if(messages==undefined){
+        return <div className="message-section"></div>
+    }
     let messagesDOM=messages.map(message=>{
         const { text, date, username } = message;
         return MessageDOM(text, date, username)
     })
+    
     return (
-        <div className='message-section'>
+        <div className="message-section">
             {messagesDOM}
             <MessageInput callback={(str:string)=>{sendMessCallback(str)}}></MessageInput>
         </div>

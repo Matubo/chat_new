@@ -8,10 +8,6 @@ export default function App()  {
   return (
     <div className="App">
         <Provider store={store}>
-        <div className='chatApp_header'>
-            <img className='chatApp_header__icon' src={logo} alt='*'></img>
-            <h1 className='chatApp_header__text'>Chat APP</h1>
-            </div>
          <AppRoot></AppRoot>
       </Provider>
     </div>
