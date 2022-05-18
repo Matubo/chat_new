@@ -27,7 +27,9 @@ const MessageSection:FC<MessageSectionProps> = ({messages, sendMessCallback}) =>
     
     return (
         <div className="message-section">
+            <div className='message-section__messages'>
             {messagesDOM}
+            </div>
             <MessageInput callback={(str:string)=>{sendMessCallback(str)}}></MessageInput>
         </div>
     );

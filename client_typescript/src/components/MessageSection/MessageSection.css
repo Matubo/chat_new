@@ -1,11 +1,16 @@
 .message-section{
     background-color: lightgray;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100vh;
+    max-width: 80vw;
+}
+.message-section__messages{
     overflow:auto;
     overflow-x: hidden;
+    max-width: 100%;
 }
 .message-section::-webkit-scrollbar{
     width: 0px;
-}
-.message__text{
-    white-space: pre-wrap;
 }
