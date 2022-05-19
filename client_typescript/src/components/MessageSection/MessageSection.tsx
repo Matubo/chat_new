@@ -5,24 +5,26 @@ import './MessageSection.css';
 
 type MessageSectionProps={
     messages:IMessage[]|undefined,
-    sendMessCallback:Function
+    sendMessCallback:Function,
+    selfUsername:string|null
 }
 
-const MessageDOM=(text:string,data:string,username:string)=>{
+const MessageDOM=(text:string,data:string,username:string, self:boolean)=>{
 return(
-    <div className="message">
+    <div className={self?"message self":"message"}>
         <p className="message__text">{text} {data} {username}</p>
     </div>
 )
 }
 
-const MessageSection:FC<MessageSectionProps> = ({messages, sendMessCallback}) => {
+const MessageSection:FC<MessageSectionProps> = ({messages, sendMessCallback, selfUsername}) => {
     if(messages==undefined){
         return <div className="message-section"></div>
     }
     let messagesDOM=messages.map(message=>{
         const { text, date, username } = message;
-        return MessageDOM(text, date, username)
+        let flag = username==selfUsername?true:false;
+        return MessageDOM(text, date, username, flag)
     })
     
     return (

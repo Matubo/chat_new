@@ -3,6 +3,7 @@ import { store } from "./store/store";
 import {Provider } from "react-redux";
 import AppRoot from "./components/AppRoot/AppRoot";
 import logo from './assets/img/bubble-chat.png';
+import './assets/fonts/stylesheet.css'
 
 export default function App()  {
   return (

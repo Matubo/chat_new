@@ -14,3 +14,10 @@
 .message-section::-webkit-scrollbar{
     width: 0px;
 }
+.message__text{
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+.self{
+    background-color: bisque;
+}

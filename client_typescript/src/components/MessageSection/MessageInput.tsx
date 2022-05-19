@@ -6,7 +6,7 @@ type MessageInputProps={
     callback:Function
 }
 
-function strHaveAnySymbols(str:string){
+function strHaveAnyMeaningfulSymbols(str:string){
 if(str.match(/\S/i)!=null) return true
 else return false
 
@@ -23,15 +23,15 @@ const MessageInput:FC<MessageInputProps> = ({callback}) => {
     function sendMessageHandler() {
       let textContent=(inpRef.current as HTMLInputElement).innerText;
       if(textContent!=null){
-      if(textContent.length>0 && strHaveAnySymbols(textContent)){
-        textContent=cleanStrWhitespace(textContent);
+      if(textContent.length>0 && strHaveAnyMeaningfulSymbols(textContent)){
+       /*  textContent=cleanStrWhitespace(textContent); */
         callback(textContent);
          (inpRef.current as HTMLInputElement).innerText = ""; 
       }}}
  
       const onKeyDownHandler= function (e:React.KeyboardEvent<HTMLDivElement>){
         const currentTextLength = (e.target as HTMLInputElement).innerText.length;
-        if (currentTextLength === MAX_LENGTH && e.keyCode != 8) {
+        if (currentTextLength === MAX_LENGTH && e.keyCode !== 8) {
             e.preventDefault();
         }
       }
