@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button{
+  background-color: var(--button-color);
+}
+
+*{
+  --textarea-color:#FFE5D9;
+  --button-color:#42cafd;
+  --message-text-color:#172a3a;
+  --chat-elem-color:#fee9e1;
+  --message-color-1:#ACFCD9;
+  --message-color-2:#EDAFB8;
+}

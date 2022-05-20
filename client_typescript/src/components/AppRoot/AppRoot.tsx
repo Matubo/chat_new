@@ -33,7 +33,7 @@ const ChatApp: FC = () => {
           }
         ></ConnectField> */}
         <div className="chat-field-grid">
-        <ChatList rooms={rooms} createRoomFun={()=>{CREATE_ROOM_REQUEST({})}} changeRoomFun={(id:string)=>dispatch(CHANGE_ROOM({id}))}></ChatList>
+        <ChatList rooms={rooms} currentRoom={currentRoom} createRoomFun={()=>{CREATE_ROOM_REQUEST({})}} changeRoomFun={(id:string)=>dispatch(CHANGE_ROOM({id}))} connectRoomFun={(id:string)=>JOIN_TO_ROOM_REQUEST({id})}></ChatList>
         <MessageSection messages={currentRoom?rooms[currentRoom].messages:undefined} sendMessCallback={(message:string)=>{if(currentRoom){(SEND_MESSAGE({id:currentRoom,message}))}}} selfUsername={username}></MessageSection>
         </div>
         <button style={{position:"absolute",top:0,right:0}} onClick={()=>{console.log({authorized,rooms,currentRoom})}}>console.log(store)</button>

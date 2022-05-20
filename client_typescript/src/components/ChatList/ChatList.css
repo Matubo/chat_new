@@ -1,6 +1,12 @@
+.left-block{
+    height: 100%;
+    overflow: hidden;
+}
 .chat-list{
+    height: 100%;
     overflow:auto;
     overflow-x: hidden;
+    background-color: var(--chat-elem-color);
 }
 .chat-list::-webkit-scrollbar{
     width: 0px;
