@@ -27,7 +27,7 @@ const ChatApp: FC = () => {
   if (!authorized) {
     return (
       <Authorization
-        callback={(data: string) =>
+        authorization={(data: string) =>
           dispatch(SET_USERNAME_REQUEST({ username: data }))
         }
       />
@@ -38,11 +38,11 @@ const ChatApp: FC = () => {
         <ChatList
           rooms={rooms}
           currentRoom={currentRoom}
-          createRoomFun={() => {
+          createRoom={() => {
             CREATE_ROOM_REQUEST({});
           }}
-          changeRoomFun={(id: string) => dispatch(CHANGE_ROOM({ id }))}
-          connectRoomFun={(id: string) => JOIN_TO_ROOM_REQUEST({ id })}
+          changeRoom={(id: string) => dispatch(CHANGE_ROOM({ id }))}
+          connectToRoom={(id: string) => JOIN_TO_ROOM_REQUEST({ id })}
         ></ChatList>
         <MessageSection
           messages={currentRoom ? rooms[currentRoom].messages : undefined}

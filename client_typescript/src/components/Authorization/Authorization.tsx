@@ -1,17 +1,19 @@
 import React, { FC, useState } from "react";
+import './Authorization.css';
 
 type AuthorizationWindowPropTypes = {
-  callback: Function;
+  authorization: Function;
 };
 
 const AuthorizationWindow: FC<AuthorizationWindowPropTypes> = ({
-  callback,
+  authorization,
 }) => {
+  
   const [user, setUser] = useState("");
 
   const clickHandler = () => {
-    if (user.length > 3) {
-      callback(user);
+    if (user.length > 2) {
+      authorization(user);
     }
   };
 
@@ -21,14 +23,14 @@ const AuthorizationWindow: FC<AuthorizationWindowPropTypes> = ({
 
   return (
     <div className="authorization">
+      <p className="authorization__header">Введите имя:</p>
       <input
         type="text"
         className="authorization__input input"
         value={user}
         onChange={changeInputHandler}
       />
-      <button className="authorization__button" onClick={clickHandler}>Вход</button>
-      не авторизован
+      <button className="authorization__button button" onClick={clickHandler}>Вход</button>
     </div>
   );
 };

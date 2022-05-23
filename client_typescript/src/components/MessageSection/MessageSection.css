@@ -1,5 +1,5 @@
 .message-section{
-    background-color: var(--textarea-color);
+    background-color: var(--bg-color);
     display:flex;
     flex-direction: column;
     justify-content: space-between;

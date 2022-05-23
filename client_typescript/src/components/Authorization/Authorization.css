@@ -1,0 +1,25 @@
+.authorization{
+    position:fixed;
+    top:50vh;
+    left:50vw;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px 20px 40px;
+    background-color: var(--chatlist-bg-color);
+    border-radius: 20px;
+    box-shadow: var(--shadow-color-1) 0px 3px 6px, var(--shadow-color-2) 0px 3px 6px;
+}
+.authorization__header{
+    margin:0;
+    font-size:large;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10px;
+}
+.authorization__input{
+    display:block;
+    margin:10px;
+}
+.authorization__button{
+    float: right;
+    margin-right: 10px;
+}

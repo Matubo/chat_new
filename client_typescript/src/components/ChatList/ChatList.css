@@ -1,12 +1,8 @@
-.left-block {
-  height: 100%;
-  overflow: hidden;
-}
 .chat-list {
   height: 100%;
   overflow: auto;
   overflow-x: hidden;
-  background-color: var(--chat-elem-color);
+  background-color: var(--chatlist-bg-color);
 }
 .chat-list::-webkit-scrollbar {
   width: 0px;
@@ -14,5 +10,5 @@
 .connect-field {
   top: 0;
   position: sticky;
-  background-color: var(--chat-elem-color);
+  background-color: var(--chatlist-bg-color);
 }

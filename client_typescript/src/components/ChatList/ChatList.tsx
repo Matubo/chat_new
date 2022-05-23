@@ -2,43 +2,22 @@ import React, { FC, useState } from "react";
 import { IChatRooms } from "../../types/states/ChatRoomsTypes";
 import ChatElem from "./ChatElem";
 import "./ChatList.css";
+import ConnectionField from './ConnectionField';
 
 type ChatListProps = {
   rooms: IChatRooms;
   currentRoom: string | null;
-  createRoomFun: Function;
-  changeRoomFun: Function;
-  connectRoomFun: Function;
-};
-
-const ConnectBlock = function ({
-  connect,
-  create,
-}: {
-  connect: Function;
-  create: Function;
-}) {
-  const [value, setValue] = useState("0");
-
-  function onChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value);
-  }
-
-  return (
-    <div className="connect-field">
-      <input type="number" name="connect" onChange={onChangeHandler} />
-      <button onClick={() => connect(value)}>connect</button>
-      <button onClick={() => create()}>create</button>
-    </div>
-  );
+  createRoom: Function;
+  changeRoom: Function;
+  connectToRoom: Function;
 };
 
 const ChatList: FC<ChatListProps> = ({
   rooms,
-  createRoomFun,
-  changeRoomFun,
+  createRoom,
+  changeRoom,
   currentRoom,
-  connectRoomFun,
+  connectToRoom,
 }) => {
   let chatList = [];
   for (let roomId in rooms) {
@@ -50,7 +29,7 @@ const ChatList: FC<ChatListProps> = ({
         base64Image={base64Image}
         self={roomId == currentRoom ? true : false}
         callback={() => {
-          changeRoomFun(id);
+          changeRoom(id);
         }}
         key={id}
       ></ChatElem>
@@ -58,15 +37,13 @@ const ChatList: FC<ChatListProps> = ({
   }
 
   return (
-    <div className="left-block">
       <div className="chat-list">
-        <ConnectBlock
-          connect={connectRoomFun}
-          create={createRoomFun}
-        ></ConnectBlock>
+        <ConnectionField
+          connect={connectToRoom}
+          create={createRoom}
+        ></ConnectionField>
         {chatList}
       </div>
-    </div>
   );
 };
 

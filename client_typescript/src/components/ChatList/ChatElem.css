@@ -3,15 +3,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: gray 1px solid;
+    border-bottom: 1px var(--border-color) solid;
     padding: 2px 4px 2px 4px;
+    box-shadow: 0px 1px unset var(--border-color);
 }
 .chat-elem.self{
     box-shadow: 0px 3px lightgrey;
     background-color: var(--button-color);
 }
 .chat-elem:hover{
-    box-shadow: 0px 3px inset lightgrey;
+    border-bottom: 0;
+    box-shadow: 0px 1px inset var(--border-color);
 }
 .chat-elem__img{
     width:50px;
