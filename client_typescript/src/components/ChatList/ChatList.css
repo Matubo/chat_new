@@ -7,8 +7,3 @@
 .chat-list::-webkit-scrollbar {
   width: 0px;
 }
-.connect-field {
-  top: 0;
-  position: sticky;
-  background-color: var(--chatlist-bg-color);
-}

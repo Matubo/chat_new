@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import { IChatRooms } from "../../types/states/ChatRoomsTypes";
 import ChatElem from "./ChatElem";
-import "./ChatList.css";
+import "./chatListDOM.css";
 import ConnectionField from './ConnectionField';
 
-type ChatListProps = {
+type chatListDOMProps = {
   rooms: IChatRooms;
   currentRoom: string | null;
   createRoom: Function;
@@ -12,17 +12,18 @@ type ChatListProps = {
   connectToRoom: Function;
 };
 
-const ChatList: FC<ChatListProps> = ({
+const chatListDOM: FC<chatListDOMProps> = ({
   rooms,
   createRoom,
   changeRoom,
   currentRoom,
   connectToRoom,
 }) => {
-  let chatList = [];
+  
+  let chatListDOM = [];
   for (let roomId in rooms) {
     const { id, name, base64Image } = rooms[roomId];
-    chatList.push(
+    chatListDOM.push(
       <ChatElem
         id={id}
         name={name}
@@ -42,9 +43,9 @@ const ChatList: FC<ChatListProps> = ({
           connect={connectToRoom}
           create={createRoom}
         ></ConnectionField>
-        {chatList}
+        {chatListDOM}
       </div>
   );
 };
 
-export default ChatList;
+export default chatListDOM;

@@ -27,7 +27,7 @@ function handlers(io, socket) {
     if (result.status) {
       socket.join(result.room);
       socket.emit("accept_join_to_room", result); //--
-      console.log("accept_join_to_room", result);
+      console.log("accept_join_to_room", result.status, {...result.room,base64Image:'+'});
     }
   });
 
@@ -37,7 +37,7 @@ function handlers(io, socket) {
     if (result.status) {
       socket.join(result.room);
       socket.emit("accept_join_to_room", result); //--
-      console.log("accept_create_room", result);
+      console.log("accept_create_room", result.status,{...result.room,base64Image:'+'});
     }
   });
 
