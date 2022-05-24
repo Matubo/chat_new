@@ -6,6 +6,6 @@
     padding-bottom:10px;
     border-bottom: 1px var(--border-color) solid;
 }
-.connection-field__header{}
-.connection-field__input{}
-.connection-field__button{margin-left:5px;}
+.connection-field__button{
+    margin-left:5px;
+}

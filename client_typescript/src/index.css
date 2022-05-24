@@ -7,6 +7,7 @@ button {
   border-radius: 5px; 
   border: 2px var(--border-color) solid;
   box-shadow: var(--shadow-color-1) 0px 2px 4px, var(--shadow-color-2) 0px 2px 4px;
+  cursor: pointer;
 }
 button:hover{
   box-shadow: var(--shadow-color-1) 0px 1px 2px, var(--shadow-color-2) 0px 1px 2px;
