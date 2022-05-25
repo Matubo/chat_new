@@ -3,7 +3,7 @@ import send from '../../assets/img/send.png';
 import './MessageInput.css';
 
 type MessageInputProps = {
-	callback: Function;
+	sendMessage: Function;
 };
 
 function strHaveAnyMeaningfulSymbols(str: string) {
@@ -12,10 +12,13 @@ function strHaveAnyMeaningfulSymbols(str: string) {
 }
 
 function cleanStrWhitespace(str: string) {
-	return str.replace(/[^\S]+/, '').replace(/[^\S]+$/, '');
+	return str
+		.replace(/[^\S]+/y, '')
+		.replace(/[^\S]{2,}/g, '\n')
+		.replace(/[^\S]+$/, '');
 }
 
-const MessageInput: FC<MessageInputProps> = ({ callback }) => {
+const MessageInput: FC<MessageInputProps> = ({ sendMessage }) => {
 	const inpRef = useRef<HTMLDivElement>(null);
 	const MAX_LENGTH = 1000;
 
@@ -23,8 +26,8 @@ const MessageInput: FC<MessageInputProps> = ({ callback }) => {
 		let textContent = (inpRef.current as HTMLInputElement).innerText;
 		if (textContent != null) {
 			if (textContent.length > 0 && strHaveAnyMeaningfulSymbols(textContent)) {
-				/*  textContent=cleanStrWhitespace(textContent); */
-				callback(textContent);
+				textContent = cleanStrWhitespace(textContent);
+				sendMessage(textContent);
 				(inpRef.current as HTMLInputElement).innerText = '';
 			}
 		}
@@ -32,7 +35,10 @@ const MessageInput: FC<MessageInputProps> = ({ callback }) => {
 
 	const onKeyDownHandler = function (e: React.KeyboardEvent<HTMLDivElement>) {
 		const currentTextLength = (e.target as HTMLInputElement).innerText.length;
-		if (currentTextLength === MAX_LENGTH && e.key !== 'Backspace') {
+		if (e.code == 'Enter' && !e.shiftKey) {
+			sendMessageHandler();
+			e.preventDefault();
+		} else if (currentTextLength === MAX_LENGTH && e.key !== 'Backspace') {
 			e.preventDefault();
 		}
 	};
