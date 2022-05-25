@@ -1,34 +1,36 @@
 body {
-  margin: 0;
+	margin: 0;
 }
 
 button {
-  background-color: var(--button-color);
-  border-radius: 5px; 
-  border: 2px var(--border-color) solid;
-  box-shadow: var(--shadow-color-1) 0px 2px 4px, var(--shadow-color-2) 0px 2px 4px;
-  cursor: pointer;
+	text-align: center;
+	background-color: var(--button-color);
+	border-radius: 5px;
+	border: 2px var(--border-color) solid;
+	box-shadow: var(--shadow-color-1) 0px 2px 4px,
+		var(--shadow-color-2) 0px 2px 4px;
+	cursor: pointer;
 }
-button:hover{
-  box-shadow: var(--shadow-color-1) 0px 1px 2px, var(--shadow-color-2) 0px 1px 2px;
+button:hover {
+	box-shadow: var(--shadow-color-1) 0px 1px 2px,
+		var(--shadow-color-2) 0px 1px 2px;
 }
 
-button:active{
-  box-shadow: var(--shadow-color-1)  0px, var(--shadow-color-2)  0px;
+button:active {
+	box-shadow: var(--shadow-color-1) 0px, var(--shadow-color-2) 0px;
 }
 
-input:active{}
-
-* { color:var(--message-text-color);
-    font-family: "SF Pro Display", sans-serif;
-    font-weight: 700;
-  --bg-color: #faf0d7;
-  --button-color: #e7b88f;
-  --message-text-color: #172a3a;
-  --border-color:#172a3a;
-  --chatlist-bg-color: #e4c7a1;
-  --message-color-1: #8cc0de;
-  --message-color-2: #acfcd9;
-  --shadow-color-1:rgba(0, 0, 0, 0.16);
-  --shadow-color-2: rgba(0, 0, 0, 0.23);
+* {
+	color: var(--message-text-color);
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 700;
+	--bg-color: #faf0d7;
+	--button-color: #e7b88f;
+	--message-text-color: #172a3a;
+	--border-color: #172a3a;
+	--chatlist-bg-color: #e4c7a1;
+	--message-color-1: #8cc0de;
+	--message-color-2: #acfcd9;
+	--shadow-color-1: rgba(0, 0, 0, 0.16);
+	--shadow-color-2: rgba(0, 0, 0, 0.23);
 }

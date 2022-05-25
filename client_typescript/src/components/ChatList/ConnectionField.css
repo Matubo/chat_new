@@ -1,11 +1,15 @@
-.connection-field{
-    top: 0;
-    position: sticky;
-    overflow: hidden;
-    background-color: var(--chatlist-bg-color);
-    padding-bottom:10px;
-    border-bottom: 1px var(--border-color) solid;
+.connection-field {
+	margin: auto;
+	top: 0;
+	position: sticky;
+	overflow: hidden;
+	background-color: var(--chatlist-bg-color);
+	padding-bottom: 10px;
+	border-bottom: 1px var(--border-color) solid;
 }
-.connection-field__button{
-    margin-left:5px;
+.connection-field__button {
+	margin-left: 5px;
+}
+.connection-field__header {
+	text-align: center;
 }
