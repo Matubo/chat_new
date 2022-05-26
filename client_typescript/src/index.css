@@ -21,16 +21,17 @@ button:active {
 }
 
 * {
-	color: var(--message-text-color);
+	color: var(--text-color);
 	font-family: 'SF Pro Display', sans-serif;
 	font-weight: 700;
 	--bg-color: #faf0d7;
 	--button-color: #e7b88f;
-	--message-text-color: #172a3a;
+	--text-color: #172a3a;
 	--border-color: #172a3a;
 	--chatlist-bg-color: #e4c7a1;
 	--message-color-1: #8cc0de;
 	--message-color-2: #acfcd9;
 	--shadow-color-1: rgba(0, 0, 0, 0.16);
 	--shadow-color-2: rgba(0, 0, 0, 0.23);
+	--text-color-light: #172a3aa2;
 }

@@ -11,10 +11,10 @@ function strHaveAnyMeaningfulSymbols(str: string) {
 	else return false;
 }
 
-function cleanStrWhitespace(str: string) {
+function strWhitespaceClearing(str: string) {
 	return str
 		.replace(/[^\S]+/y, '')
-		.replace(/[^\S]{2,}/g, '\n')
+		.replace(/[^\S]{3,}/g, '\n\n')
 		.replace(/[^\S]+$/, '');
 }
 
@@ -25,8 +25,8 @@ const MessageInput: FC<MessageInputProps> = ({ sendMessage }) => {
 	function sendMessageHandler() {
 		let textContent = (inpRef.current as HTMLInputElement).innerText;
 		if (textContent != null) {
-			if (textContent.length > 0 && strHaveAnyMeaningfulSymbols(textContent)) {
-				textContent = cleanStrWhitespace(textContent);
+			if (strHaveAnyMeaningfulSymbols(textContent)) {
+				textContent = strWhitespaceClearing(textContent);
 				sendMessage(textContent);
 				(inpRef.current as HTMLInputElement).innerText = '';
 			}

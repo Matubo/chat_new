@@ -29,24 +29,26 @@ const ConnectionField: FC<ConnectionBlockProps> = function ({
 			<p className="connection-field__header">
 				Подключение к комнате / создание
 			</p>
-			<input
-				className="connection-field__input"
-				type="number"
-				name="connect"
-				onChange={onChangeHandler}
-			/>
-			<button
-				className="connection-field__button"
-				onClick={connectButtonHandler}
-			>
-				connect
-			</button>
-			<button
-				className="connection-field__button"
-				onClick={createButtonHandler}
-			>
-				create
-			</button>
+			<div className="test">
+				<input
+					className="connection-field__input"
+					type="number"
+					name="connect"
+					onChange={onChangeHandler}
+				/>
+				<button
+					className="connection-field__button"
+					onClick={connectButtonHandler}
+				>
+					connect
+				</button>
+				<button
+					className="connection-field__button"
+					onClick={createButtonHandler}
+				>
+					create
+				</button>
+			</div>
 		</div>
 	);
 };

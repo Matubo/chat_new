@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { IMessage } from '../../types/states/ChatRoomsTypes';
+import Message from './Message';
 import MessageInput from './MessageInput';
 import './MessageSection.css';
 
@@ -7,21 +8,6 @@ type MessageSectionProps = {
 	messages: IMessage[] | undefined;
 	sendMessCallback: Function;
 	selfUsername: string | null;
-};
-
-const MessageDOM = (
-	text: string,
-	data: string,
-	username: string,
-	self: boolean
-) => {
-	return (
-		<div className={self ? 'message self' : 'message'}>
-			<p className="message__text">
-				{text} {data} {username}
-			</p>
-		</div>
-	);
 };
 
 const MessageSection: FC<MessageSectionProps> = ({
@@ -36,17 +22,20 @@ const MessageSection: FC<MessageSectionProps> = ({
 	let messagesDOM = messages.map((message) => {
 		const { text, date, username } = message;
 		let flag = username == selfUsername ? true : false;
-		return MessageDOM(text, date, username, flag);
+		return (
+			<Message
+				date={date}
+				text={text}
+				username={username}
+				self={flag}
+			></Message>
+		);
 	});
-
-	const sendMessageHandler = (str: string) => {
-		sendMessCallback(str);
-	};
 
 	return (
 		<div className="message-section">
 			<div className="message-section__messages">{messagesDOM}</div>
-			<MessageInput sendMessage={sendMessageHandler}></MessageInput>
+			<MessageInput sendMessage={sendMessCallback}></MessageInput>
 		</div>
 	);
 };
