@@ -29,21 +29,21 @@ const ConnectionField: FC<ConnectionBlockProps> = function ({
 			<p className="connection-field__header">
 				Подключение к комнате / создание
 			</p>
-			<div className="test">
+			<div className="connection-field__functions">
 				<input
-					className="connection-field__input"
+					className="connection-input"
 					type="number"
 					name="connect"
 					onChange={onChangeHandler}
 				/>
 				<button
-					className="connection-field__button"
+					className="connection-connect-button button"
 					onClick={connectButtonHandler}
 				>
 					connect
 				</button>
 				<button
-					className="connection-field__button"
+					className="connection-create-button button"
 					onClick={createButtonHandler}
 				>
 					create

@@ -6,13 +6,16 @@
 	padding-bottom: 10px;
 	border-bottom: 1px var(--border-color) solid;
 }
-.connection-field__button {
+.connection-field__functions {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.connection-field__functions button {
 	margin-left: 5px;
 }
 .connection-field__header {
 	text-align: center;
-}
-.test {
-	margin-left: auto;
-	margin-right: auto;
 }
