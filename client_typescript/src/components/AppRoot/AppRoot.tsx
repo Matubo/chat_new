@@ -14,10 +14,10 @@ import { CHANGE_ROOM } from '../../store/action-creator/Actions';
 import MessageSection from '../MessageSection/MessageSection';
 
 const ChatApp: FC = () => {
-	let { authorized, username } = useSelector(
+	const { authorized, username } = useSelector(
 		(store: RootState) => store.authorization
 	);
-	let { rooms, currentRoom } = useSelector(
+	const { rooms, currentRoom } = useSelector(
 		(store: RootState) => store.chatRoom
 	);
 
