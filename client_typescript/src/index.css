@@ -25,7 +25,8 @@ button:active {
 	font-family: 'SF Pro Display', sans-serif;
 	font-weight: 700;
 	--bg-color: #faf0d7;
-	--button-color: #e7b88f;
+	--button-color: #e7b78d;
+	--hover-color: #e7b78d7c;
 	--text-color: #172a3a;
 	--border-color: #172a3a;
 	--chatlist-bg-color: #e4c7a1;

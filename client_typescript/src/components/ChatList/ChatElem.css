@@ -7,11 +7,11 @@
 	padding: 2px 4px 2px 4px;
 	cursor: pointer;
 }
+.chat-elem:not(.self):hover {
+	background-color: var(--hover-color);
+}
 .chat-elem.self {
 	background-color: var(--button-color);
-}
-.chat-elem:hover {
-	background-color: rgb(167, 166, 166);
 }
 .chat-elem__img {
 	width: 50px;
