@@ -1,4 +1,3 @@
-import { Dispatch } from 'react';
 import {
 	ChatRoomsActions,
 	ChatRoomsActionTypes,
@@ -25,10 +24,8 @@ export const SET_NEW_MESSAGES = (
 };
 
 export const CHANGE_ROOM = (data: ChangeRoomFunctionParams) => {
-	return (dispatch: Dispatch<ChatRoomsActions>) => {
-		const { id } = data;
-		dispatch({ type: ChatRoomsActionTypes.CHANGE_ROOM, payload: { id } });
-	};
+	const { id } = data;
+	return { type: ChatRoomsActionTypes.CHANGE_ROOM, payload: { id } };
 };
 
 export const SET_USERNAME = (

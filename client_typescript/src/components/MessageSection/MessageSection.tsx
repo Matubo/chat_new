@@ -35,7 +35,10 @@ const MessageSection: FC<MessageSectionProps> = ({
 	return (
 		<div className="message-section">
 			<div className="message-section__messages">{messagesDOM}</div>
-			<MessageInput sendMessage={sendMessCallback}></MessageInput>
+			<MessageInput
+				sendMessage={sendMessCallback}
+				MAX_LENGTH={1000}
+			></MessageInput>
 		</div>
 	);
 };

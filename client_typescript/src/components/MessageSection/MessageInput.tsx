@@ -1,32 +1,22 @@
 import React, { FC, useRef } from 'react';
 import send from '../../assets/img/send.png';
+import strHaveSymbols from '../../utils/meaningfulSymbChecker';
+import strWhitespaceClean from '../../utils/whitespaceCleaner';
 import './MessageInput.css';
 
 type MessageInputProps = {
 	sendMessage: Function;
+	MAX_LENGTH: number;
 };
 
-function strHaveAnyMeaningfulSymbols(str: string) {
-	if (str.match(/\S/i) != null) return true;
-	else return false;
-}
-
-function strWhitespaceClearing(str: string) {
-	return str
-		.replace(/[^\S]+/y, '')
-		.replace(/[^\S]{3,}/g, '\n\n')
-		.replace(/[^\S]+$/, '');
-}
-
-const MessageInput: FC<MessageInputProps> = ({ sendMessage }) => {
+const MessageInput: FC<MessageInputProps> = ({ sendMessage, MAX_LENGTH }) => {
 	const inpRef = useRef<HTMLDivElement>(null);
-	const MAX_LENGTH = 1000;
 
 	function sendMessageHandler() {
 		let textContent = (inpRef.current as HTMLInputElement).innerText;
 		if (textContent != null) {
-			if (strHaveAnyMeaningfulSymbols(textContent)) {
-				textContent = strWhitespaceClearing(textContent);
+			if (strHaveSymbols(textContent)) {
+				textContent = strWhitespaceClean(textContent);
 				sendMessage(textContent);
 				(inpRef.current as HTMLInputElement).innerText = '';
 			}

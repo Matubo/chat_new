@@ -27,7 +27,7 @@ const ChatApp: FC = () => {
 		return (
 			<Authorization
 				authorization={(data: string) =>
-					dispatch(SET_USERNAME_REQUEST({ username: data }))
+					SET_USERNAME_REQUEST({ username: data })
 				}
 			/>
 		);
